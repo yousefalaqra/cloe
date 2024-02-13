@@ -1,0 +1,107 @@
+{
+    "settings" : "الاعدادات",
+    "english" : "انجليزي",
+    "arabic" : "عربي",
+    "food" : "الطعام",
+    "clients":"العملاء",
+    
+
+    "units":"وحدات القياس",
+    "unitsHeader":"الوحدات ",
+    "mealsHeader":"الوجبات",
+    "dietsPlan":"خطة النظام الغذائي",
+    
+    "foodItemsHeader":"أصناف الطعام",
+
+    "warning":"هذه رسالة تحذير",
+    "errorMessage":"هذه رسالة تحذير بوجود خطأ",
+    "isRequired" : "مطلوب",
+    "isRequired2" : "مطلوبة",
+    "isDuplicate" :"مكرر",
+    "unitColCode":"الرمز",
+    "unitColGramsRatio":"نسبة الغرامات", 
+    "rowAction":"العملية",
+    "addUnit":"اضافة وحدة",
+    "editUnit":"تعديل الوحدة",
+    "codePlaceHolder":"أدخل اسم الوحدة",
+    "gramsPlaceHolder":"أدخل نسبة الغرامات",
+    "chooseUnit":"اختر وحدة ",
+    "newfoodItem":"إضافة مادة غذائية جديدة",
+
+
+
+    "types":"الأنواع",
+  
+    "typeCol":"النوع",
+    "typeColCategory":"تصنيف النوع",
+    "addType":"اضافة نوع",
+    "chooseType":"اختر نوع",
+    "editType":"تعديل النوع",
+    "filterType":"تصنيف حسب الاقسام",
+    "foodItem":"صنف طعام", 
+    "diet":"حمية",
+    "meal":"وجبة غذائية",
+    "typePlaceHolder":"أدخل قيمة النوع",
+
+
+    "edit":"تعديل",
+    "delete": "حذف",
+    "save":"حفظ",
+    "close":"اغلاق",
+    "no":"لا",
+    "yes":"نعم",
+    "confirmDelete":" هل أنت متأكد من الحذف؟",
+    "language":"اللغة",
+    "new":"اضافة",
+    "noData":"لا يوجد بيانات للعرض",
+
+    "foodItemName" : "صنف الطعام",
+    "nameFoodItemPlaceHolder":"أدخل اسم صنف الطعام",
+    "addFoodItem":"اضافة صنف طعام",
+    "editFoodItem":"تعديل صنف الطعام",
+    "protein" : "البروتينات",
+    "carbohydrates" :"الكربوهيدرات",
+    "calories" :" السعرات الحرارية",
+    "fat" :"الدهون",
+    "quantityFoodItemPlaceHolder":"أدخل الكمية",
+    "liquid":"سائل",
+    "fatPlaceHolder":"أدخل قيمة الدهنيات",
+    "proteinPlaceHolder":"أدخل قيمة البروتينات",
+    "carbsPlaceHolder":"أدخل قيمة الكربوهيدرات",
+
+    "mealName" : "اسم الوجبة",
+    "nameMealPlaceHolder":"أدخل اسم الوجبة",
+    "addMeal":"اضافة وجبة",
+    "editMeal":"تعديل الوجبة",
+    "ingredient" :"المكونات",
+    "chooseFoodItme":"اختر مادة غذائية" ,
+    "chooseMeal":"اختر وجبة" ,
+    "inputQuantity" :" أدخل الكمية",
+    "requiredQuantity" :"الكمية المطلوبة من ",
+    "quantity" :"الكمية", 
+    "totalProtein" : "البروتين الكلي",
+    "totalCarbohydrates" :"الكربوهيدرات الكلية",
+    "TotalCalories" :"إجمالي السعرات الحرارية",
+    "TotalFat" :"إجمالي الدهون",
+    "searchByName":"ابحث بالاسم",
+    "steps":"خطوات التمثيل",
+    "count":": عدد ",
+
+    "name":"الاسم",
+    "qtyError":"أدخل كمية أكبر من صفر (0) ",
+
+    "addDietTemplete":"أضف قالب الأنظمة الغذائية",
+    "editDietTemplete":"تعديل قالب الأنظمة الغذائية",
+    "dietName" : "اسم الحمية",
+    "namDietPlaceHolder":"أدخل اسم الحمية",
+    "dayCount": "اليوم"
+    ,
+    "breakFast":"فطور",
+    "lunch":"غذاء",
+    "dinner":"عشاء",
+    "snack":"وجبة خفيفة"
+
+
+
+
+}

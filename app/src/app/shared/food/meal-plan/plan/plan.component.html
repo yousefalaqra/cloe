@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="bar">
+    <!-- <div class="actions">
+      <div class="merge" (click)="showMergeModal = true">
+        <i class="material-icons md-24">add</i>
+      </div>
+    </div> -->
+    <div class="days">
+      <div
+        class="it"
+        (click)="activatePlan(plan)"
+        *ngFor="let plan of plansMap"
+      >
+        <days-bar [plan]="plan"></days-bar>
+      </div>
+    </div>
+  </div>
+
+  <div class="meals">
+    <div *ngFor="let item of activePlan.plan.meals">
+      <meal-card
+        (deleteMeal)="deleteMeal($event)"
+        (updateMeal)="updateMeal($event)"
+        (addRecipe)="onAddMealRecipe($event)"
+        (deleteRecipe)="onDeleteRecipe($event)"
+        (addItem)="onAddItem($event)"
+        (updateItem)="onUpdateItem($event)"
+        (deleteItem)="onDeleteItem($event)"
+        [meal]="item"
+      ></meal-card>
+    </div>
+
+    <div class="add-meal" (click)="onAddMeal()">
+      <div class="text">أضف وجبة جديدة</div>
+      <div class="icon">
+        <i class="material-icons md-24">add</i>
+      </div>
+    </div>
+
+    <div
+      id="scrollMeal"
+      [ngClass]="{ 'add-active': showAddMealPanel }"
+      class="add-meal-form"
+    >
+      <div
+        (click)="onSelectMeal(mealType)"
+        class="meal-types"
+        *ngFor="let mealType of mealsTypes"
+      >
+        <div class="text">{{ mealType.value }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="showMergeModal"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  (nzOnOk)="onMerge()"
+  (nzOnCancel)="showMergeModal = false"
+>
+  <ng-template #modalTitle>
+    <div class="title">
+      <div class="main">إنشاء نسخة جديدة لخطة الوجبات</div>
+      <div class="sub">حدد الأيام التي تريد إنشاء خطة وجبات محددة لها</div>
+    </div>
+  </ng-template>
+
+  <ng-template #modalContent>
+    <div class="list">
+      <div
+        [ngClass]="{ selected: item.selected }"
+        class="el"
+        *ngFor="let item of days"
+        (click)="onSelectDay(item)"
+      >
+        <div>{{ item.day | day }}</div>
+        <div *ngIf="item.selected">
+          <i class="material-icons md-24">done</i>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedDays.length > 1" class="select-wrapper">
+      <div class="label">طريقة الإنشاء</div>
+      <nz-select
+        [nzBorderless]="true"
+        [(ngModel)]="selectedMethod"
+        [nzDropdownStyle]="{ textAlign: 'right', fontFamily: 'Tajawal' }"
+        (ngModelChange)="onCreationMethodChanges($event)"
+      >
+        <nz-option
+          *ngFor="let item of creationMethods"
+          nzValue="{{ item.value }}"
+          nzLabel="{{ item.label }}"
+        ></nz-option>
+      </nz-select>
+    </div>
+  </ng-template>
+</nz-modal>

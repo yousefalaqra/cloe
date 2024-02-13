@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="col">
+    <div class="revnue">
+      <joi-card [title]="'المدخلات الشهرية'" [desc]="'المدخلات والذمم المدينة'">
+        <div class="row">
+          <div class="rem total-income">
+            <div class="text">صافي المدخلات</div>
+            <div class="value">{{ income.totalIncome }} ₪</div>
+          </div>
+          <div class="rem total-paid">
+            <div class="text">المستحقات</div>
+            <div class="value">{{ income.paidIncome }} ₪</div>
+          </div>
+          <div class="rem total-dept">
+            <div class="text">الديون</div>
+            <div class="value">{{ income.debtsIncome }} ₪</div>
+          </div>
+        </div>
+      </joi-card>
+    </div>
+  </div>
+
+  <div class="col sm">
+    <div class="subscriptions">
+      <joi-card
+        [title]="'الإشتراكات'"
+        [desc]="'تحقق من المعلومات حول اشتراكاتك'"
+        [icon]="'add'"
+        (onAction)="showAddModal = true"
+      >
+        <subscriptions-list></subscriptions-list>
+      </joi-card>
+    </div>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="showAddModal"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  (nzOnCancel)="showAddModal = false"
+  (nzOnOk)="onAddSubscription()"
+>
+  <ng-template #modalTitle>
+    <div class="title">
+      <div class="main">ادخل بيانات الإشتراك</div>
+    </div>
+  </ng-template>
+
+  <ng-template #modalContent>
+    <form [formGroup]="subscriptionForm">
+      <div class="group">
+        <div class="label">قيمة الاشتراك</div>
+        <div class="control">
+          <input type="number" [formControl]="subscriptionForm.get('cost')" />
+        </div>
+        <div class="icon">₪</div>
+      </div>
+      <div class="checkbox">
+        <p>الرجاء تحديد المدة الزمنية للاشتراك:</p>
+         
+        <input
+          type="radio"
+          id="week"
+          [formControl]="subscriptionForm.get('period')"
+          value="168"
+        />
+          <label for="html">أسبوع</label><br />
+
+         
+        <input
+          type="radio"
+          id="month"
+          [formControl]="subscriptionForm.get('period')"
+          value="730"
+        />
+          <label for="css">شهر</label><br />
+
+         
+        <input
+          type="radio"
+          id="year"
+          [formControl]="subscriptionForm.get('period')"
+          value="8760"
+        />
+          <label for="css">سنة</label><br />
+      </div>
+    </form>
+  </ng-template>
+</nz-modal>

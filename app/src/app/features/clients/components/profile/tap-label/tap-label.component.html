@@ -1,0 +1,16 @@
+<div class="container" (click)="onClick()" [ngClass]="{'active': active}">
+  <div class="row g">
+    <div class="col">
+      <div class="main">
+        <div><span class="dot">.</span>{{ tapIndex + 1 }}</div>
+        <div>{{ tapTitle }}</div>
+      </div>
+    </div>
+    <div class="col">
+      <span class="desc">{{ tapDescription }}</span>
+    </div>
+  </div>
+  <div class="row">
+    <i class="material-icons md-18 sample">{{ tapIcon }}</i>
+  </div>
+</div>

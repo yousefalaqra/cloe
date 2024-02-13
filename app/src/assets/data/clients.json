@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "fullName": "Yousef Alaqra",
+    "gender": 0
+  },
+  {
+    "id": 1,
+    "fullName": "Osama Meri",
+    "gender": 0
+  },
+  {
+    "id": 2,
+    "fullName": "Aml Mustafa",
+    "gender": 1
+  },
+  {
+    "id": 3,
+    "fullName": "Lara Zamel",
+    "gender": 1
+  },
+  {
+    "id": 4,
+    "fullName": "Moath Ali",
+    "gender": 0
+  },
+  {
+    "id": 5,
+    "fullName": "Lubna Adnan",
+    "gender": 1
+  }
+]

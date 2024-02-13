@@ -1,0 +1,131 @@
+.container {
+  width: 100%;
+  height: 35px;
+  color: #676a6c;
+  border: 1px solid #e7eaec;
+
+  background: #e4e4e6;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.label {
+  height: 100%;
+  min-width: 180px;
+  background: #fafafb;
+  padding: 10px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  border-left: 1px solid #e7eaec;
+}
+
+.felid {
+  height: 100%;
+
+  flex-grow: 3;
+
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.data {
+  height: 100%;
+  background-color: white;
+  width: 100%;
+  // padding: 10px 10px 11px 11px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+}
+.ac {
+  padding: 10px;
+  height: 100%;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #fafafb;
+
+  border-right: 1px solid #e7eaec;
+
+  &.g {
+    color: #1ab394;
+  }
+  &.r {
+    color: #db4965;
+  }
+}
+
+// .title {
+//   min-width: 180px;
+//   flex-basis: 180px;
+//   text-align: right;
+//   height: 100%;
+
+//   padding: 5px 10px 5px 10px;
+//   font-size: 1.1em;
+// }
+
+// .data {
+//   height: 100%;
+
+//   flex-grow: 3;
+//   display: flex;
+//   flex-direction: row-reverse;
+//   align-items: center;
+//   cursor: pointer;
+// }
+
+// .felid {
+//   // width: 100px;
+//   height: 100%;
+//   direction: rtl;
+
+//   &.inActive {
+//     ::ng-deep {
+//       input {
+//         cursor: pointer;
+//       }
+//     }
+//   }
+//   ::ng-deep {
+//     input {
+//       height: 100%;
+//       border: 0;
+//     }
+//   }
+// }
+
+// .action {
+//   height: 100%;
+//   padding: 10px;
+//   border: 1px solid #e7eaec;
+
+//   display: flex;
+//   align-items: center;
+//   font-size: 18px;
+//   &.default {
+//     color: #1ab394;
+//   }
+
+//   &.cancel {
+//     color: #db4965;
+//   }
+
+//   .red {
+//     color: #db4965;
+//   }
+// }

@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="info" *ngIf="client">
+    <div class="itm avatar">
+      <av-d-woman *ngIf="client.gender == 1"></av-d-woman>
+      <av-e-man *ngIf="client.gender == 0"></av-e-man>
+    </div>
+    <div class="itm name" (click)="onEditName()">
+      <span>
+        <ng-container *ngIf="!isUpdate">
+          {{ client.fullName }}
+        </ng-container>
+
+        <ng-container *ngIf="isUpdate">
+          <input
+            (focusout)="onFullNameFocusOut()"
+            (keyup.enter)="onFullNameFocusOut()"
+            [formControl]="clientNameFormControl"
+            #clientNameInput
+            type="text"
+          />
+          {{ clientNameInput.focus() }}
+        </ng-container>
+      </span>
+      <i *ngIf="!isUpdate" class="material-icons md-18 sample">edit</i>
+    </div>
+    <div class="itm tags">
+      <ng-container *ngIf="!isShowAddTagFrom">
+        <div (click)="onAddTag()" class="btn">
+          <span>وسم جديد</span>
+          <i class="material-icons md-18 sample">add</i>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isShowAddTagFrom">
+        <input
+          (focusout)="onTagFocusOut()"
+          (keyup.enter)="onTagFocusOut()"
+          [formControl]="clientTagFormControl"
+          #tagInput
+          type="text"
+        />
+        {{ tagInput.focus() }}
+      </ng-container>
+
+      <div class="tag-list">
+        <nz-tag
+          *ngFor="let tag of client.clientTags"
+          nzMode="closeable"
+          (nzOnClose)="onDeleteTag(tag.tagId)"
+          >{{ tag.tag }}</nz-tag
+        >
+      </div>
+    </div>
+    <div class="itm actions">
+      <div class="btn gr">حجز موعد</div>
+      <div
+        nz-popconfirm
+        nzPopconfirmTitle="هل أنت متأكد من أنك تريد حذف العميل؟"
+        nzPopconfirmPlacement="bottom"
+        (nzOnConfirm)="confirmDelete()"
+        (nzOnCancel)="cancel()"
+        [nzCancelText]="'إلغاء'"
+        [nzOkText]="'تأكيد'"
+        class="btn rd"
+      >
+        حذف العميل
+      </div>
+    </div>
+  </div>
+</div>

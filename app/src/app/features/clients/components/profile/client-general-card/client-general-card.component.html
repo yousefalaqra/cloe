@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="info" *ngIf="client">
+    <div class="col st">
+      <div class="mad">
+        <presenter
+          #genderPresenter
+          [title]="'الجنس'"
+          [value]="'ذكر'"
+          [type]="'dropDown'"
+          [editMode]="genderEditMode"
+          (onEdit)="requestGenderEdit($event)"
+        >
+          <div dataFelid class="select-wrapper">
+            <client-gender-dropdown
+              [open]="genderSelectOpen"
+              [clientGender]="clientGender"
+              (onGenderChange)="onGender($event)"
+            >
+            </client-gender-dropdown>
+          </div>
+        </presenter>
+      </div>
+      <div class="mad">
+        <presenter
+          #birthDatePresenter
+          [editMood]="birthDateEditMode"
+          (onEdit)="requestBirthDateEdit($event)"
+          [title]="'تاريخ الولادة'"
+          [value]="'بديا'"
+          [type]="'normal'"
+          (onSave)="onUpdateBirthDate($event)"
+        >
+          <div dataFelid class="select-wrapper">
+            <nz-date-picker
+              #birthDatePicker
+              [nzSuffixIcon]="null"
+              [(ngModel)]="birthDate"
+              name="date"
+            ></nz-date-picker>
+          </div>
+        </presenter>
+      </div>
+    </div>
+
+    <div class="col en">
+      <div class="mad">
+        <presenter
+          #phoneNumberPresenter
+          [title]="'رقم الهاتف'"
+          [type]="'normal'"
+          [editMood]="phoneNumberEditMode"
+          (onEdit)="requestPhoneNumberEdit($event)"
+          (onSave)="onSavePhoneNumber($event)"
+        >
+          <div dataFelid class="select-wrapper">
+            <input
+              #phoneNumber
+              lang="en"
+              name="clientPhoneNumberControl"
+              [formControl]="clientPhoneNumberControl"
+              type="text"
+            />
+            {{ phoneNumberEditMode && phoneNumber.focus() }}
+          </div>
+        </presenter>
+      </div>
+      <div class="mad">
+        <presenter
+          #workplacePresenter
+          [editMode]="workplacesEditMode"
+          (onEdit)="requestWorkplaceEdit($event)"
+          [title]="'مكان العمل'"
+          [value]="'ذكر'"
+          [type]="'dropDown'"
+        >
+          <div dataFelid class="select-wrapper">
+            <workplaces-dropdown
+              [open]="workplacesSelectOpen"
+              [clinetWorkplaces]="clientWorkplaces"
+              (onChange)="onWorkplaceChange($event)"
+            ></workplaces-dropdown>
+          </div>
+        </presenter>
+      </div>
+      <div class="mad">
+        <presenter [title]="'تاريخ الإنضمام'" [value]="'بديا'" [type]="'none'">
+          <div dataFelid class="select-wrapper">
+            <div class="value-date">{{ client.createdAt | date: "short" }}</div>
+          </div>
+        </presenter>
+      </div>
+    </div>
+  </div>
+</div>

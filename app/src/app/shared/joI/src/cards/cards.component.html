@@ -1,0 +1,16 @@
+<div class="card-wrapper">
+  <div class="card-header">
+    <div class="meta">
+      <div class="title">{{ title }}</div>
+      <div class="desc">
+        {{ desc }}
+      </div>
+    </div>
+    <div class="icon" [ngClass]="{'dl': icon == 'delete'}" (click)="onIcon()">
+      <i class="material-icons md-24">{{ icon }}</i>
+    </div>
+  </div>
+  <div class="card-content">
+    <ng-content #cardContent></ng-content>
+  </div>
+</div>

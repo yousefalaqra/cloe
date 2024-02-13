@@ -1,0 +1,221 @@
+.container {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bar {
+  width: 100%;
+  background-color: white;
+  height: 43px;
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: row;
+
+  -webkit-box-shadow: 0 2px 2px 0 rgb(144 144 144 / 14%),
+    0 3px 1px -2px transparent, 0 1px 5px 0 rgb(145 145 145 / 12%);
+  box-shadow: 0 2px 2px 0 rgb(144 144 144 / 14%), 0 3px 1px -2px transparent,
+    0 1px 5px 0 rgb(145 145 145 / 12%);
+
+  border-radius: 5px;
+}
+
+.merge {
+  width: 40px;
+  height: 43px;
+
+  padding: 10px;
+  background-color: white;
+
+  border: 1px solid #f1f1f1;
+  border-top: 0;
+  border-bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.add-meal {
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 100%;
+  height: 45px;
+
+  background-color: #1ab394;
+
+  padding: 10px;
+
+  color: white;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0f9177;
+  }
+
+  .text {
+    font-weight: bolder;
+  }
+  .icon {
+    font-size: 15px;
+    font-weight: bolder;
+  }
+}
+
+.add-meal-form {
+  width: 100%;
+  // padding: 20px;
+  padding: 0px;
+  height: 0;
+
+  display: none;
+
+
+  &.add-active {
+    padding: 20px;
+    display: flex;
+    height: auto;
+  }
+
+  background-color: white;
+
+  // display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .meal-types {
+    width: 200px;
+    cursor: pointer;
+    padding: 5px 0;
+    &:hover {
+      background-color: #0f9177;
+      color: white;
+    }
+
+    border: 1px solid #0f9177;
+
+    color: #0f9177;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 10px;
+  }
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Tajawal";
+
+  .main {
+    font-size: larger;
+    margin-bottom: 10px;
+  }
+
+  .sub {
+    font-size: small;
+  }
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .el {
+    padding: 10px;
+    width: 110px;
+    height: 40px;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    cursor: pointer;
+
+    border: 1px solid #f1f1f1;
+
+    &:hover {
+      border-color: #bdbaba;
+    }
+
+    &.selected {
+      border: 1px solid #1ab394;
+      color: #1ab394;
+    }
+
+    background-color: white;
+  }
+}
+
+.select-wrapper {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+
+  .label {
+    margin-bottom: 10px;
+  }
+
+  margin-bottom: 20px;
+
+  nz-select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+
+    height: 35px;
+
+    &:focus {
+      border: 1px solid #1ab394;
+    }
+  }
+}
+
+::ng-deep {
+  button {
+    &.ant-btn-primary {
+      background-color: #1ab394;
+      border-color: #1ab394;
+    }
+  }
+  nz-date-picker {
+    input {
+      direction: rtl;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<div class="itm" [ngClass]="{ show: editMode, not: !editMode }">
+  <div class="delete" (click)="onDeleteItem()" [ngClass]="{ show: editMode }">
+    <i class="material-icons md-24">delete</i>
+  </div>
+  <ng-container
+    *ngIf="!editMode; then thenTemplate; else elseTemplate"
+  ></ng-container>
+</div>
+
+<ng-template #thenTemplate>
+  <div class="options">
+    <div class="ic edit" (click)="editMode = true">
+      <i class="material-icons md-24">edit</i>
+    </div>
+  </div>
+
+  <div dir="rtl" class="text">
+    {{ item.quantity }} {{ getUnitCode(item.unitId) }} من
+    {{ item.foodItemName }}
+  </div>
+</ng-template>
+
+<ng-template #elseTemplate>
+  <div class="quantity">
+    <input
+      #quantity
+      (keyup.enter)="updateQuantity()"
+      type="number"
+      class="joui-input"
+      [formControl]="quantityControl"
+    />
+    {{ quantity.focus() }}
+  </div>
+  <div class="unit">
+    <nz-select
+      [nzBorderless]="true"
+      [(ngModel)]="selectedUnit"
+      [nzDropdownStyle]="{
+        textAlign: 'right',
+        fontFamily: 'Tajawal',
+        widthPx: 300,
+        padding: 10
+      }"
+      (ngModelChange)="onUnitChange($event)"
+    >
+      <nz-option
+        *ngFor="let unit of units"
+        [nzValue]="unit.id"
+        [nzLabel]="unit.code"
+      ></nz-option>
+    </nz-select>
+  </div>
+
+  <div class="name">
+    {{ item.foodItemName }}
+  </div>
+</ng-template>

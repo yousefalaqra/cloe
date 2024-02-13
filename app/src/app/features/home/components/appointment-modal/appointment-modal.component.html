@@ -1,0 +1,97 @@
+<nz-modal
+  [(nzVisible)]="showModal"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]="null"
+  [nzWidth]="650"
+  (nzOnCancel)="onCancel()"
+>
+  <ng-template #modalTitle>
+    <div class="title">
+      <div class="main">حدد موعدًا جديدًا</div>
+      <div class="sub">معلومات لجدولة موعد جديد</div>
+    </div>
+  </ng-template>
+
+  <ng-template #modalContent>
+    <div class="taps-header">
+      <div
+        (click)="onActivateTap(item.id)"
+        [ngClass]="{ active: item.active }"
+        class="tap-it"
+        *ngFor="let item of taps"
+      >
+        {{ item.id + 1 }}. {{ item.title }}
+      </div>
+    </div>
+
+    <div class="content">
+      <ng-container
+        *ngIf="
+          activeTap.id == 0;
+          then clinetListTap;
+          else appointmentDetailsTap
+        "
+      ></ng-container>
+    </div>
+  </ng-template>
+</nz-modal>
+
+<ng-template #clinetListTap>
+  <div class="search">
+    <input
+      (keydown.enter)="searchClients()"
+      [formControl]="searchControl"
+      placeholder="ابحث عن عميل"
+      type="text"
+      class="joi-input"
+    />
+  </div>
+  <ng-container *ngIf="clientsLoading">
+    <div class="loading">
+      <div class="app-icon">
+        <loading-apple></loading-apple>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!clientsLoading">
+    <div class="client-list" *ngFor="let client of clients">
+      <client-list-item
+        (onSelect)="onSelectClient($event)"
+        [client]="client"
+      ></client-list-item>
+    </div>
+  </ng-container>
+</ng-template>
+<ng-template #appointmentDetailsTap>
+  <div class="form">
+    <form>
+      <div class="control">
+        <div class="label">تاريخ الموعد</div>
+        <nz-range-picker
+          [nzShowTime]="true"
+          name="date"
+          [(ngModel)]="date"
+          (ngModelChange)="onDateChange($event)"
+        ></nz-range-picker>
+      </div>
+
+      <div class="control">
+        <div class="label">حالة الموعد</div>
+        <nz-select  name="status" [(ngModel)]="status">
+          <nz-option nzValue="0" nzLabel="مؤكد"></nz-option>
+          <nz-option nzValue="1" nzLabel="في الإنتظار"></nz-option>
+          <nz-option nzValue="2" nzLabel="ملغى"></nz-option>
+        </nz-select>
+      </div>
+      <div class="control">
+        <div class="label">العميل</div>
+        <client-list-item [client]="selectedClient"></client-list-item>
+      </div>
+    </form>
+    <div class="actions">
+      <div (click)="onAddAppointment()" class="btn save">حفظ</div>
+      <div class="btn cancel">إلغاء</div>
+    </div>
+  </div>
+</ng-template>

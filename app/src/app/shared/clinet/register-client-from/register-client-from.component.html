@@ -1,0 +1,147 @@
+<nz-modal
+  [(nzVisible)]="watchRegistration"
+  nzTitle="Save new segment as..."
+  (nzOnCancel)="handleCancel()"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]="modalFooter"
+  [nzWidth]="900"
+  [nzClosable]="false"
+>
+</nz-modal>
+
+<ng-template #modalTitle>
+  <div [ngClass]="{ ar: lang == 'ar', en: lang == 'en' }" class="modal-title">
+    <div class="title">{{ "client.regTitle" | translate }}</div>
+    <div class="sub">
+      {{ "client.regSubTitle" | translate }}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #modalContent>
+  <form dir="{{ lang == 'ar' ? 'rtl' : 'ltr' }}" class="form">
+    <!-- full-name -->
+    <div [formGroup]="clientForm" class="form-group">
+      <label>
+        <abbr title="{{ 'app.required' | translate }}">*</abbr>
+        {{ "client.fullNameLbl" | translate }}
+      </label>
+      <div class="form-control">
+        <div [ngClass]="{ ar: lang == 'ar' }" class="icon">
+          <i class="material-icons">person</i>
+        </div>
+        <input [formControl]="fullName" type="text" />
+      </div>
+    </div>
+    <!-- full-name -->
+
+    <div class="section">
+      <!-- gender -->
+      <div class="form-group">
+        <label>
+          <abbr title="required">*</abbr>
+          {{ "client.genderLbl" | translate }}
+        </label>
+        <div class="form-control">
+          <div [ngClass]="{ ar: lang == 'ar' }" class="icon">
+            <i class="material-icons">face</i>
+          </div>
+          <div class="select-wrapper">
+            <client-gender-dropdown (onGenderChange)="onGender()">
+            </client-gender-dropdown>
+          </div>
+        </div>
+      </div>
+      <!-- gender -->
+
+      <div class="gap"></div>
+
+      <!-- dob -->
+      <div class="form-group">
+        <label>{{ "client.birthdateLbl" | translate }}</label>
+        <div class="form-control">
+          <div [ngClass]="{ ar: lang == 'ar' }" class="icon">
+            <i class="material-icons">date_range</i>
+          </div>
+          <nz-date-picker
+            [nzSuffixIcon]="null"
+            [(ngModel)]="birthDate"
+            name="date"
+          ></nz-date-picker>
+        </div>
+      </div>
+      <!-- dob -->
+    </div>
+
+    <div class="section">
+      <!-- workplace -->
+      <div class="form-group">
+        <label>
+          <abbr title="required">*</abbr>
+          {{ "client.workplaceLbl" | translate }}
+        </label>
+        <div class="form-control">
+          <div [ngClass]="{ ar: lang == 'ar' }" class="icon">
+            <i class="material-icons">location_on</i>
+          </div>
+          <div class="select-wrapper">
+            <workplaces-dropdown
+              (onChange)="onWorkplaceChange($event)"
+            ></workplaces-dropdown>
+          </div>
+        </div>
+      </div>
+      <!-- workplace -->
+      <div class="gap"></div>
+
+      <!-- phone -->
+      <div class="form-group">
+        <label>
+          <abbr title="required">*</abbr>
+          {{ "client.phoneNumberLbl" | translate }}
+        </label>
+        <div class="form-control">
+          <div class="icon">
+            <i class="material-icons">phone</i>
+          </div>
+          <div
+            nz-dropdown
+            [nzDropdownMenu]="menu3"
+            nzPlacement="bottomRight"
+            [nzTrigger]="'click'"
+            class="extension"
+          >
+            {{ extension.value }}
+          </div>
+          <input [formControl]="phoneNumber" type="text" />
+        </div>
+      </div>
+      <!-- phone -->
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #modalFooter>
+  <div [ngClass]="{ ar: lang == 'ar' }" class="actions">
+    <div class="btn btn-white cancel">{{ "client.cancelBtn" | translate }}</div>
+    <div
+      [ngClass]="{ invalid: !clientForm.valid || workplaceError }"
+      (click)="handleOk()"
+      class="btn btn-primary add"
+    >
+      {{ "client.regBtn" | translate }}
+    </div>
+  </div>
+</ng-template>
+
+<nz-dropdown-menu #menu3="nzDropdownMenu">
+  <ul nz-menu>
+    <li (click)="onPhoneExtension('970')" nz-menu-item>
+      <span>970</span>
+    </li>
+    <li (click)="onPhoneExtension('972')" nz-menu-item>
+      <span>972</span>
+    </li>
+  </ul>
+</nz-dropdown-menu>

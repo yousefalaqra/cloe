@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="energy">
+    <div class="label">الطاقة</div>
+    <div class="value">
+      {{ nutritionValue?.energy }}
+      <div class="unit">kcal</div>
+    </div>
+  </div>
+
+  <div class="circles">
+    <div class="tr">
+      <div class="crc fat">
+        <div class="value">{{ nutritionValue?.fat }}<span>g</span></div>
+      </div>
+      <div class="label">الدهون</div>
+    </div>
+
+    <div class="tr">
+      <div class="crc carb">
+        <div class="value">{{ nutritionValue?.carbs }}<span>g</span></div>
+      </div>
+      <div class="label">الكربوهيدرات</div>
+    </div>
+
+    <div class="tr">
+      <div class="crc protien">
+        <div class="value">{{ nutritionValue?.protien }}<span>g</span></div>
+      </div>
+      <div class="label">البروتين</div>
+    </div>
+  </div>
+</div>

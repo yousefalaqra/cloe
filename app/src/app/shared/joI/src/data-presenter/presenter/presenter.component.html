@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="label">
+    {{ title }}
+  </div>
+  <div class="felid">
+    <!-- <div class="data">{{ value }}</div> -->
+    <div class="data">
+      <ng-content select="[dataFelid]"></ng-content>
+    </div>
+
+    <div class="actions" *ngIf="inputType != 'none'">
+      <ng-container *ngIf="inputType == 'dropDown'">
+        <div
+          (click)="onChangeMood(true)"
+          class="ac g default"
+          *ngIf="!editMood"
+        >
+          <i class="material-icons md-18">keyboard_arrow_down</i>
+        </div>
+        <div
+          (click)="onChangeMood(false)"
+          class="ac r default"
+          *ngIf="editMood"
+        >
+          <i class="material-icons md-18">keyboard_arrow_up</i>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="inputType == 'normal'">
+        <div
+          (click)="onChangeMood(true)"
+          class="ac g default"
+          *ngIf="!editMood"
+        >
+        <i class="material-icons md-18">edit</i>
+        </div>
+        <div
+          (click)="onChangeMood(false)"
+          class="ac r default"
+          *ngIf="editMood"
+        >
+          <i class="material-icons md-18">close</i>
+        </div>
+        <div
+          (click)="onSaveData()"
+          class="ac g default"
+          *ngIf="editMood"
+        >
+          <i class="material-icons md-18">done</i>
+        </div>
+      </ng-container>
+      <!-- <div class="ac default"></div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div
+  class="admin"
+  nz-dropdown
+  [nzDropdownMenu]="menu"
+  [nzPlacement]="'bottomLeft'"
+  nzTrigger="click"
+  [ngClass]="{
+    rtl: language == 'ar',
+    ltr: language == 'en'
+  }"
+>
+  <div
+    [ngClass]="{
+      rtl: language == 'ar',
+      ltr: language == 'en'
+    }"
+    class="avatar"
+  >
+    <av-a-woman></av-a-woman>
+  </div>
+
+  <div
+    [ngClass]="{
+      rtl: language == 'ar',
+      ltr: language == 'en'
+    }"
+    class="admin-name"
+  >
+    {{name}}
+  </div>
+  <i
+    [ngClass]="{
+      rtl: language == 'ar',
+      ltr: language == 'en'
+    }"
+    class="material-icons md-18 dro-sample"
+    >keyboard_arrow_down</i
+  >
+</div>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li
+    [routerLink]="['login']" 
+      [ngClass]="{
+        rtl: language == 'ar',
+        ltr: language == 'en'
+      }"
+      nz-menu-item
+    >
+      <i class="material-icons md-18">power_settings_new</i>
+      <span>{{ "app.signout" | translate }}</span>
+    </li>
+  </ul>
+</nz-dropdown-menu>

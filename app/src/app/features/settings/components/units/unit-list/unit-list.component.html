@@ -1,0 +1,124 @@
+<div nz-row class="titleClass" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }"
+  [ngStyle]="isArabic?{'direction': 'rtl'} : {'direction': 'ltr'}">
+  <h1 [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }" style="font-weight: bold;">
+    {{translateData.unitsHeader}}</h1>
+</div>
+<div  [ngClass]="{'arabicDir':isArabic, 'englishDir':!isArabic }" >
+  <div nz-row>
+    <div nz-col nzSpan="18"> </div>
+    <div nz-col nzSpan="4" style="margin-right: inherit;">
+      <button [ngClass]="{'addbuttonArabic':isArabic, 'addbuttonEnglish':!isArabic }" nz-button class="successButton"
+        (click)="addNewUnit()">
+        <span [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">+ {{translateData.new}}</span>
+      </button>
+    </div>
+  </div>
+  <div  nz-row>
+    <nz-table #filterTable  nzSize="small" class="tableWidth" [nzShowPagination]="false"
+      [nzData]="unitItem" nzTableLayout="fixed" [nzNoResult]="translateData.noData">
+      <thead>
+        <tr>
+          <th [nzWidth]="'10px'" *ngFor="let column of listOfColumns" [nzSortOrder]="column.sortOrder"
+            [nzSortFn]="column.sortFn" [nzSortDirections]="column.sortDirections"
+            [ngClass]="{'ArabicFont thStyleAr':isArabic, 'EnglishFont thStyleEn':!isArabic }">
+            {{ column.name }}
+          </th>
+        </tr>
+      </thead>
+      <tbody >
+        <ng-container *ngFor="let item of filterTable.data ; let i = index">
+          <ng-container *ngIf=" unitItem.indexOf(item) % 2 == 0">
+            <tr style="background-color: #edece6;" id="{{i}}" (mouseenter)="showSetting($event)" (mouseleave)="turnOffAction($event)"
+              [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">
+
+              <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">{{ item.code }}</td>
+              <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">{{ item.gramsRatio }}
+              </td>
+              <ng-container *ngIf="isArabic">
+                <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">
+                  <div nz-row>
+                    <div nz-col nzSpan="15"> {{ (item.isLiquid)?"نعم" :"لا" }} </div>
+                    <div nz-col nzSpan="9">
+                      <ng-container *ngIf="item.action">
+                        <button nz-button style="color: green;background-color: white;border: none  !important;;"
+                          (click)="editUnit(item)"><i nz-icon nzType="edit" nzTheme="outline"></i> </button>
+                        <button nzType="danger" nz-button
+                          style="color: red;background-color: white;border: none  !important;"
+                          (click)="showDeleteConfirm(item)"> <i nz-icon nzType="delete" nzTheme="outline"></i>
+                        </button>
+                      </ng-container>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+              <ng-container *ngIf="!isArabic">
+                <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">
+                  <div nz-row>
+                    <div nz-col nzSpan="15"> {{ (item.isLiquid)?"Yes" : "No" }} </div>
+                    <div nz-col nzSpan="9">
+                      <ng-container *ngIf="item.action">
+                        <button nz-button style="color: green;background-color: white;border: none  !important;;"
+                          (click)="editUnit(item)"><i nz-icon nzType="edit" nzTheme="outline"></i> </button>
+                        <button nzType="danger" nz-button
+                          style="color: red;background-color: white;border: none  !important;"
+                          (click)="showDeleteConfirm(item)"> <i nz-icon nzType="delete" nzTheme="outline"></i>
+                        </button>
+                      </ng-container>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+
+            </tr>
+          </ng-container>
+          <ng-container *ngIf=" unitItem.indexOf(item) % 2 != 0">
+            <tr style="background-color: white;" id="{{i}}" (mouseenter)="showSetting($event)" (mouseleave)="turnOffAction($event)"
+              [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">
+
+              <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">{{ item.code }}</td>
+              <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">{{ item.gramsRatio }}
+              </td>
+              <ng-container *ngIf="isArabic">
+                <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">
+                  <div nz-row>
+                    <div nz-col nzSpan="15"> {{ (item.isLiquid)?"نعم" :"لا" }} </div>
+                    <div nz-col nzSpan="9">
+                      <ng-container *ngIf="item.action">
+                        <button nz-button style="color: green;background-color: white;border: none  !important;;"
+                          (click)="editUnit(item)"><i nz-icon nzType="edit" nzTheme="outline"></i> </button>
+                        <button nzType="danger" nz-button
+                          style="color: red;background-color: white;border: none  !important;"
+                          (click)="showDeleteConfirm(item)"> <i nz-icon nzType="delete" nzTheme="outline"></i>
+                        </button>
+                      </ng-container>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+              <ng-container *ngIf="!isArabic">
+                <td [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">
+                  <div nz-row>
+                    <div nz-col nzSpan="15"> {{ (item.isLiquid)?"Yes" : "No" }} </div>
+                    <div nz-col nzSpan="9">
+                      <ng-container *ngIf="item.action">
+                        <button nz-button style="color: green;background-color: white;border: none  !important;;"
+                          (click)="editUnit(item)"><i nz-icon nzType="edit" nzTheme="outline"></i> </button>
+                        <button nzType="danger" nz-button
+                          style="color: red;background-color: white;border: none  !important;"
+                          (click)="showDeleteConfirm(item)"> <i nz-icon nzType="delete" nzTheme="outline"></i>
+                        </button>
+                      </ng-container>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+
+            </tr>
+          </ng-container>
+        </ng-container>
+
+
+      </tbody>
+    </nz-table>
+  </div>
+</div>

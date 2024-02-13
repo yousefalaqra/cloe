@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  background-color: white;
+
+  border-radius: 5px;
+  border: 1px solid #ccc;
+
+  height: 50px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+
+  &.in-active {
+    background-color: #ccc;
+  }
+}
+
+.cost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.period {
+    flex-grow: 1;
+    // margin-right: 20px;
+  }
+
+  .label {
+    font-weight: bolder;
+  }
+}

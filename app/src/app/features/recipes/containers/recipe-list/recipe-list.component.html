@@ -1,0 +1,200 @@
+<div class="container">
+  <div class="card">
+    <card-list
+      [title]="'وصفات'"
+      [desc]="'البحث والتحقق وإنشاء وصفات جديدة'"
+      [icon]="'add'"
+      [loading]="loading"
+      [placeholder]="'ابحث عن وصفة بالاسم'"
+      (onIcon)="creteDefaultRecipe()"
+      (onSearch)="searchFoodItems($event)"
+    >
+      <div list class="content">
+        <div class="food-list">
+          <div class="list-item"  [routerLink]="['/recipe/details', item.id]" 
+            *ngFor="let item of recipes">
+            <div class="title">{{ item.name }}</div>
+            <div class="calc">
+              <div class="unit">
+                <div class="value">
+                  {{ item.energy }}<span class="measurement">kcal</span>
+                </div>
+                <div class="type">الطاقة</div>
+              </div>
+              <div class="unit">
+                <div class="value">
+                  {{ item.fat }}<span class="measurement">g</span>
+                </div>
+                <div class="type">الدهون</div>
+              </div>
+              <div class="unit">
+                <div class="value">
+                  {{ item.carbs }}<span class="measurement">g</span>
+                </div>
+                <div class="type">الكربوهيدرات</div>
+              </div>
+              <div class="unit">
+                <div class="value">
+                  {{ item.protien }}
+                  <span class="measurement">g</span>
+                </div>
+                <div class="type">البروتين</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </card-list>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="showModal"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzWidth]="900"
+>
+</nz-modal>
+
+<ng-template #modalTitle>
+  <div class="modal-title">
+    <div class="title">أضف مادة غذائية جديدة</div>
+    <div class="sub">املأ الحقول أدناه بمعلومات الطعام</div>
+  </div>
+</ng-template>
+
+<ng-template #modalContent>
+  <!-- <abbr title="هذا الحقل مطلوب">*</abbr> -->
+
+  <form class="form">
+    <div class="section">
+      <!-- food-name -->
+      <div class="form-group">
+        <!-- <abbr title="هذا الحقل مطلوب">*</abbr> -->
+        <label for="foodName">الإسم</label>
+        <input
+          [(ngModel)]="foodName"
+          (ngModelChange)="onFoodNameChange($event)"
+          name="foodName"
+          type="text"
+        />
+      </div>
+
+      <!-- food group -->
+      <div class="form-group">
+        <!-- <abbr title="هذا الحقل مطلوب">*</abbr> -->
+        <label for="group">مجموعة الطعام</label>
+        <nz-select
+          [(ngModel)]="selectedFoodGroup"
+          [nzOpen]="open"
+          [nzBorderless]="true"
+          [nzShowArrow]="false"
+          name="selectedFoodGroup"
+          (ngModelChange)="onFoodGroupChange($event)"
+        >
+          <nz-option nzLabel="حدد مجموعة الطعام" nzValue="0"></nz-option>
+
+          <nz-option
+            *ngFor="let group of foodGroups"
+            nzLabel="{{ group.value }}"
+            nzValue="{{ group.key }}"
+          ></nz-option>
+        </nz-select>
+      </div>
+    </div>
+
+    <!-- food-name -->
+
+    <div class="section">
+      <!-- unit and quantity -->
+      <!-- <abbr title="هذا الحقل مطلوب">*</abbr> -->
+      <div class="form-group">
+        <label for="group">الكمية</label>
+        <input
+          (ngModelChange)="onQuantityChange($event)"
+          name="foodQuantity"
+          [(ngModel)]="foodQuantity"
+          type="number"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="group">وحدة القياس</label>
+        <nz-select
+          [(ngModel)]="selectedUnit"
+          [nzOpen]="open"
+          [nzBorderless]="true"
+          [nzShowArrow]="false"
+          name="selectedUnit"
+          (ngModelChange)="onUnitChange($event)"
+        >
+          <nz-option
+            *ngFor="let unit of foodUnits"
+            nzLabel="{{ unit.code }}"
+            nzValue="{{ unit.id }}"
+          ></nz-option>
+        </nz-select>
+      </div>
+
+      <!-- unit and quantity -->
+    </div>
+
+    <div class="nutrition-section">
+      <joi-card [title]="'القيمة الغذائية'" [desc]="description">
+        <div class="section">
+          <!-- unit and quantity -->
+          <!-- <abbr title="هذا الحقل مطلوب">*</abbr> -->
+          <div class="form-group">
+            <label for="group">الطاقة</label>
+            <input
+              (ngModelChange)="onEnergyChange($event)"
+              name="energy"
+              [(ngModel)]="energy"
+              type="number"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="group">الدهون</label>
+            <input
+              (ngModelChange)="onFatChange($event)"
+              name="fat"
+              [(ngModel)]="fat"
+              type="number"
+            />
+          </div>
+
+          <!-- unit and quantity -->
+        </div>
+
+        <div class="section">
+          <!-- unit and quantity -->
+          <!-- <abbr title="هذا الحقل مطلوب">*</abbr> -->
+          <div class="form-group">
+            <label for="group">الكربوهيدرات</label>
+            <input
+              (ngModelChange)="onCarbsChange($event)"
+              name="carbs"
+              [(ngModel)]="carbs"
+              type="number"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="group">البروتين</label>
+            <input
+              (ngModelChange)="onProteinChange($event)"
+              name="protein"
+              [(ngModel)]="protein"
+              type="number"
+            />
+          </div>
+
+          <!-- unit and quantity -->
+        </div>
+      </joi-card>
+    </div>
+  </form>
+</ng-template>

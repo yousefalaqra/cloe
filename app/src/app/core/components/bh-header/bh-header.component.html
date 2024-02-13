@@ -1,0 +1,52 @@
+<div
+  [ngClass]="{
+    'full-width': toggled,
+    'min-width': !toggled,
+    rtl: language == 'ar',
+    ltr: language == 'en'
+  }"
+  class="container"
+>
+  <div
+    [ngClass]="{
+      rtl: language == 'ar',
+      ltr: language == 'en'
+    }"
+    (click)="onToggle()"
+    class="menu-toggle"
+  >
+    <i class="material-icons md-18 sample">menu</i>
+  </div>
+
+  <!-- <div
+    [ngClass]="{
+      rtl: language == 'ar',
+      ltr: language == 'en'
+    }"
+    class="app-search"
+  >
+    <div class="icon bh-button">
+      <i class="material-icons md-18 sample">search</i>
+    </div>
+    <input
+      dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      disabled
+      type="text"
+      placeholder="{{'app.search' | translate}}"
+      class="joui-input"
+    />
+  </div> -->
+
+  <!-- <div
+    [ngClass]="{
+      rtl: language == 'ar',
+      ltr: language == 'en'
+    }"
+    class="notification bh-button"
+  >
+    <i class="material-icons md-18 bh-icon m danger-text">notifications_off</i>
+  </div> -->
+
+  <!-- <header-language></header-language> -->
+  <header-admin></header-admin>
+</div>

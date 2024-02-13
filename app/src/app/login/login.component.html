@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="login-card">
+    <div class="header">مرحبا بعودتك!</div>
+
+    <form class="form">
+      <input
+        [formControl]="username"
+        type="text"
+        class="joui-input"
+        placeholder="الإيميل"
+      />
+      <input
+        [formControl]="password"
+        autocomplete="new-password"
+        class="joui-input"
+        type="password"
+        placeholder="كلمة السر"
+      />
+
+      <button (click)="onLogin()" [ngClass]="{ loading: loading }">
+        تسجيل الدخول
+      </button>
+    </form>
+  </div>
+</div>

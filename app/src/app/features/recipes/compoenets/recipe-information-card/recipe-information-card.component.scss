@@ -1,0 +1,125 @@
+.container {
+  width: 100%;
+
+  background-color: #fff;
+
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgb(144 144 144 / 14%), 0 3px 1px -2px transparent,
+    0 1px 5px 0 rgb(145 145 145 / 12%);
+}
+
+.mad {
+  width: 100%;
+
+  margin-bottom: 7px;
+}
+
+.info {
+  width: 100%;
+  min-height: 434px;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+
+  padding: 20px;
+}
+
+.col {
+  width: 50%;
+  &.st {
+    margin-left: 3.5px;
+  }
+  &.en {
+    margin-right: 3.5px;
+  }
+}
+
+.select-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+nz-date-picker {
+  width: 100%;
+  outline: none;
+  border: 1px solid #e5e6e7;
+  box-shadow: none;
+
+  &:focus {
+    border-color: #1ab394;
+  }
+}
+
+::ng-deep {
+  input {
+    direction: rtl;
+    width: 100%;
+  }
+
+  .ant-picker {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border: #1ab394;
+
+    &:focus {
+    border: 1px solid #1ab394;
+
+    }
+  }
+  nz-time-picker {
+    width: 100%;
+    border: none;
+    outline: none;
+  }
+}
+
+input {
+  width: 100%;
+  height: 34px;
+
+  text-align: right;
+
+  border: 1px solid #e5e6e7;
+  padding: 6px 12px;
+
+  background-color: white;
+
+  color: #676a6c;
+  font-size: 14px;
+  line-height: 1.42857143;
+
+  &:focus {
+    border-color: #1ab394;
+  }
+  &.ng-invalid {
+    border-color: #db4965;
+  }
+}
+
+.value-date {
+  padding: 5px 8px;
+  width: 100%;
+  height: 34px;
+
+  direction: rtl;
+}
+
+@media only screen and (max-width: 1728px) {
+  .info {
+    flex-direction: column;
+    justify-content: unset;
+  }
+
+  .col {
+    width: 100%;
+    &.st {
+      margin-left: 0px;
+    }
+    &.en {
+      margin-right: 0px;
+    }
+  }
+}

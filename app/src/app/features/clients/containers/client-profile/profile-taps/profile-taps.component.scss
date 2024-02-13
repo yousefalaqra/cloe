@@ -1,0 +1,37 @@
+.taps-list {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc(25% - 10px);
+  margin-bottom: 10px;
+}
+
+.content{
+    margin-top: 10px;
+}
+.test{
+    background-color: white;
+
+    width: 50%;
+    min-height: 500px;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width: 1051px) {
+    .item {
+        width: calc(50% - 10px);
+        margin-bottom: 10px;
+      }
+  }
+
+@media only screen and (max-width: 640px) {
+    .item {
+        width: calc(100% - 10px);
+        margin-bottom: 10px;
+      }
+  }

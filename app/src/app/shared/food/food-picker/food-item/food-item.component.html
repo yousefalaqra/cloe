@@ -1,0 +1,57 @@
+<div class="cot">
+  <div class="first">
+    <div class="quantity">
+      <input
+        #quantity
+        type="number"
+        class="joui-input"
+        [formControl]="quantityControl"
+      />
+    </div>
+    <div class="unit">
+      <nz-select
+        [nzBorderless]="true"
+        [nzDisabled]="true"
+        [(ngModel)]="selectedUnit"
+        [nzDropdownStyle]="{ textAlign: 'right', fontFamily: 'Tajawal', widthPx: 300 }"
+        (ngModelChange)="onUnitChange($event)"
+      >
+      <nz-option *ngFor="let unit of units" [nzValue]="unit.id" [nzLabel]="unit.code"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+
+  <div class="name">
+    {{ item.name }}
+  </div>
+
+  <div class="nut-value">
+    <div class="unit">
+      <div class="value">
+        {{ item.calories }}<span class="measurement">kcal</span>
+      </div>
+      <div class="type">الطاقة</div>
+    </div>
+    <div class="unit">
+      <div class="value">{{ item.fat }}<span class="measurement">g</span></div>
+      <div class="type">الدهون</div>
+    </div>
+    <div class="unit">
+      <div class="value">
+        {{ item.carbohydrates }}<span class="measurement">g</span>
+      </div>
+      <div class="type">الكربوهيدرات</div>
+    </div>
+    <div class="unit">
+      <div class="value">
+        {{ item.protein }}
+        <span class="measurement">g</span>
+      </div>
+      <div class="type">البروتين</div>
+    </div>
+  </div>
+
+  <div (click)="onSelectItem()" class="add">
+    <i class="material-icons md-24">add</i>
+  </div>
+</div>

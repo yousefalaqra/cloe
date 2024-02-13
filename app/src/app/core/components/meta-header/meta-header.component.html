@@ -1,0 +1,39 @@
+<div
+  [ngClass]="{
+    'full-width': toggled,
+    'min-width': !toggled,
+    rtl: language == 'ar',
+    ltr: language == 'en'
+  }"
+  class="container"
+>
+  <div class="meta">
+    <div
+      [ngClass]="{
+        r: language == 'ar',
+        l: language == 'en'
+      }"
+      class="flex"
+    >
+      <div class="title">{{language == 'ar' ? currentPage.titleAR : currentPage.titleEN}}</div>
+      <div class="sub-title">
+        {{language == 'ar' ? currentPage.descAR : currentPage.descEN}}
+      </div>
+    </div>
+  </div>
+  <div class="date-location">
+    <div
+      [ngClass]="{
+        r: language == 'ar',
+        l: language == 'en'
+      }"
+      class="flex right"
+    >
+      <div class="title">{{'subHeader.main' | translate }}</div>
+      <div
+      class="sub-title">
+        {{ currentDate | date: "EEEE, MMMM d, y, h:mm:ss a" }}
+      </div>
+    </div>
+  </div>
+</div>

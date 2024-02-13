@@ -1,0 +1,66 @@
+<nz-collapse [nzExpandIconPosition]="'left'">
+  <nz-collapse-panel [nzHeader]="pickerHeader">
+    <div class="content">
+      <div class="content-header">
+        <div class="search">
+          <input
+            placeholder="إبحث بالإسم"
+            class="joui-input"
+            type="text"
+            [formControl]="searchFormControl"
+          />
+        </div>
+        <div class="filter">
+          <nz-select
+            [nzBorderless]="true"
+            [(ngModel)]="filter"
+            [nzDisabled]="onlyFoods"
+            [nzDropdownStyle]="{ textAlign: 'right', fontFamily: 'Tajawal' }"
+            (ngModelChange)="onFilterChange($event)"
+          >
+            <nz-option nzValue="0" nzLabel="عناصر غذائية"></nz-option>
+            <nz-option nzValue="1" nzLabel="وصفات"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+      <div class="food-list">
+        <ng-container *ngIf="!loading">
+          <ng-container
+            *ngIf="filter == 0; then foodItems; else recipes"
+          ></ng-container>
+        </ng-container>
+        <ng-container *ngIf="loading">
+          <div class="icon-loading">
+            <div class="apple">
+              <loading-apple></loading-apple>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </nz-collapse-panel>
+</nz-collapse>
+
+<ng-template #pickerHeader>
+  <div class="header">
+    <div class="text">أضف مكونًا جديدًا</div>
+  </div>
+</ng-template>
+
+<ng-template #pickerIcon>
+  <div class="icon">
+    <i class="material-icons md-24">add</i>
+  </div>
+</ng-template>
+
+<ng-template #foodItems>
+  <div class="list-item" *ngFor="let item of foods">
+    <food-item (onSelect)="onSelectItem($event)" [item]="item" [units]="units"></food-item>
+  </div>
+</ng-template>
+
+<ng-template #recipes>
+  <div  class="list-item" *ngFor="let item of recipesList">
+    <recipe-item (onSelectRecipe)="onSelectRecipe($event)" [recipe]="item"></recipe-item>
+  </div>
+</ng-template>

@@ -1,0 +1,29 @@
+<joi-card
+  [title]="title"
+  [desc]="desc"
+  [icon]="icon"
+  (onAction)="onActionClick()"
+>
+  <div class="content">
+    <div class="search">
+      <input
+        placeholder="{{placeholder}}"
+        class="joui-input"
+        type="text"
+        [formControl]="searchFormControl"
+      />
+    </div>
+    <div class="food-list">
+      <ng-container *ngIf="!loading">
+        <ng-content #list></ng-content>
+      </ng-container>
+      <ng-container *ngIf="loading">
+        <div class="icon-loading">
+          <div class="apple">
+            <loading-apple></loading-apple>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</joi-card>

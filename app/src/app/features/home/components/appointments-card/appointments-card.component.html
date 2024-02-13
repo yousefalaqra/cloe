@@ -1,0 +1,113 @@
+<div class="card-wrapper">
+  <div class="card-header">
+    <div class="meta">
+      <div class="title">المواعيد المستقبلية</div>
+      <div class="desc">تحقق من مواعيدك المستقبلية</div>
+    </div>
+    <div class="actions">
+      <nz-select
+        [(ngModel)]="timeFilter"
+        (ngModelChange)="onFilterChanges($event)"
+      >
+        <nz-option nzValue="24" nzLabel="اليوم"></nz-option>
+        <nz-option nzValue="168" nzLabel="هذا الأسبوع"></nz-option>
+        <nz-option nzValue="730" nzLabel="هذا الشهر"></nz-option>
+        <nz-option nzValue="0" nzLabel="جميع الوقت"></nz-option>
+      </nz-select>
+      <div class="icon" (click)="onAdd()">
+        <i class="material-icons md-24">add</i>
+      </div>
+      <div (click)="onRefresh()" class="icon">
+        <i class="material-icons md-24">refresh</i>
+      </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <ng-container
+      *ngIf="loading; then loadingTemplate; else appointmentsTemplate"
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <div class="app-icon">
+      <loading-apple></loading-apple>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #appointmentsTemplate>
+  <ng-container
+    *ngIf="appointments.length > 0; then listTemplate; else emptyListTemplate"
+  ></ng-container>
+</ng-template>
+
+<ng-template #listTemplate>
+  <div class="app-it" *ngFor="let item of appointments">
+    <div
+      class="status"
+      [ngClass]="{ confirm: item.status == 0, pending: item.status == 1 }"
+    ></div>
+
+    <div class="row">
+      <div class="start-time">
+        <ng-container *ngIf="isToday(item.startTime)">
+          <div class="sp">
+            <div class="today">اليوم</div>
+            <div class="hour">
+              {{ item.startTime | date: "shortTime" }}
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="!isToday(item.startTime)">
+          <div class="sp">
+            <div class="today">{{ item.startTime | date: "shortDate" }}</div>
+            <div class="hour">
+              {{ item.startTime | date: "shortTime" }}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="client">
+        <div class="avatar">
+          <av-d-woman *ngIf="item.client.gender == 1"></av-d-woman>
+          <av-e-man *ngIf="item.client.gender == 0"></av-e-man>
+        </div>
+        <div class="name">
+          {{ item.client.fullName }}
+        </div>
+      </div>
+
+      <div class="actions">
+        <div (click)="onCheckProfile(item)" class="btn-ac">
+          تحقق من الملف الشخصي
+        </div>
+        <div (click)="onDeleteAppointment(item.id)" class="btn-ac">
+          إلغاء الموعد
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="indicator">
+    <div class="ice c">
+      <div class="va">مؤكد</div>
+      <div class="col"></div>
+    </div>
+    <div class="ice p">
+      <div class="va">غير مؤكد</div>
+      <div class="col"></div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #emptyListTemplate>
+  <div class="loading">
+    <p>لا يوجد مواعيد</p>
+  </div>
+</ng-template>
+
+<appointment-modal></appointment-modal>

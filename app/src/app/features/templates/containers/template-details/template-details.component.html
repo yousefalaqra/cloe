@@ -1,0 +1,30 @@
+<div class="profile-container">
+  <ng-container *ngIf="loading">
+    <div class="icon-loading">
+      <div class="apple">
+        <loading-apple></loading-apple>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!loading">
+
+    <template-name *ngIf="!isClient" [template]="template"></template-name>
+    <div class="col">
+      <div class="itm sm">
+        <joi-card
+          [title]="'التحليل الشامل'"
+          [desc]="'توزيع الطاقة القيمة الغذائية'"
+        >
+          <nutrition-value [nutritionValue]="nutritionValue"></nutrition-value>
+        </joi-card>
+      </div>
+      <div class="itm lg">
+        <plan
+          (onMergeDays)="onAddPlans($event)"
+          (onCreateMeal)="createMeal($event)"
+          [plans]="template.plans"
+        ></plan>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,100 @@
+.admin {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 200px;
+  cursor: pointer;
+
+  &.ltr {
+    right: 23px;
+  }
+  &.rtl {
+    left: 23px;
+  }
+
+  .avatar {
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    top: 50%;
+
+    &.ltr {
+      left: 20px;
+    }
+    &.rtl {
+      right: 20px;
+    }
+
+    object-fit: contain;
+    transform: translate(0, -50%);
+  }
+
+  .toggle {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate(0, -50%);
+  }
+
+  .admin-name {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    &.ltr {
+      left: 62px;
+    }
+    &.rtl {
+      right: 62px;
+    }
+
+    color: #676a6c;
+  }
+  .dro-sample {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    color: #676a6c;
+
+    &.ltr {
+      right: 0;
+    }
+    &.rtl {
+      left: 0;
+    }
+  }
+}
+
+li {
+  display: flex;
+  align-items: center;
+  color: #676a6c;
+
+  &.ltr {
+    flex-direction: row;
+  }
+  &.rtl {
+    flex-direction: row-reverse;
+  }
+
+  span {
+    font-size: 12px;
+  }
+  i {
+    margin-right: 5px;
+    font-size: 18px;
+    &:not(:last-child) {
+      margin-left: 10px;
+    }
+  }
+  margin-top: 3px;
+  &:last-child {
+    // border-top: 1px solid #ccc;
+    // margin-top: 10px;
+  }
+}

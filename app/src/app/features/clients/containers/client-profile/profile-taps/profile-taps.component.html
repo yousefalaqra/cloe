@@ -1,0 +1,52 @@
+<div class="taps-list">
+  <div class="item" *ngFor="let tap of profileTaps">
+    <tap-label
+      [tapIndex]="tap.index"
+      [active]="tap.active"
+      [tapTitle]="getTapTitle(tap.index)"
+      [tapDescription]="getTapDesc(tap.index)"
+      [tapIcon]="getTapIcon(tap.index)"
+      (onTapClick)="activateTap($event)"
+    ></tap-label>
+  </div>
+</div>
+
+<div class="content">
+  <ng-container [ngSwitch]="activeTap.index">
+    <ng-container *ngSwitchCase="0">
+      <ng-container *ngTemplateOutlet="clientInformation"></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="1">
+      <ng-container *ngTemplateOutlet="clientMeasurements"></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="2">
+      <ng-container *ngTemplateOutlet="clientMealPlan"></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="3">
+      <ng-container *ngTemplateOutlet="clientAnalysis"></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      <ng-container *ngTemplateOutlet="clientInformation"></ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #clientInformation>
+  <client-information></client-information>
+</ng-template>
+
+<ng-template #clientMeasurements>
+  <client-measurements></client-measurements>
+</ng-template>
+
+<ng-template #clientAnalysis>
+  <client-analysis></client-analysis>
+</ng-template>
+
+<ng-template #clientMealPlan>
+  <client-meal-plan></client-meal-plan>
+</ng-template>

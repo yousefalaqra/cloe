@@ -1,0 +1,179 @@
+.container {
+  width: 100%;
+
+  padding: 20px 0;
+}
+
+.add-measurement {
+  width: 100%;
+
+  background-color: white;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  height: 50px;
+
+  display: flex;
+  flex-direction: row-reverse;
+
+  align-items: center;
+
+  .btn {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    &.add-button {
+      border-left: 1px solid #ccc;
+      width: 80%;
+    }
+    &.import {
+      width: 20%;
+      position: relative;
+      input {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+    }
+
+    &:hover {
+      background-color: whitesmoke;
+      color: #1ab394;
+    }
+
+    cursor: pointer;
+
+    padding: 10px;
+    .text {
+      width: 80%;
+      text-align: right;
+    }
+    .icon {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.row {
+  display: flex;
+
+  margin-top: 20px;
+
+  width: 100%;
+
+  .list {
+    width: 70%;
+  }
+
+  .list-item {
+    width: 100%;
+    height: 30px;
+
+    border: 1px solid #ccc;
+
+    display: flex;
+    direction: rtl;
+
+    margin-bottom: 10px;
+
+    .icon {
+      height: 30px;
+      width: 30px;
+      background-color: #2f4050;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: "Tajawal", sans-serif;
+
+      i {
+        color: #fff;
+      }
+    }
+
+    .label {
+      width: 30%;
+      height: 30px;
+
+      background-color: #2f4050;
+      color: #ffff;
+      font-family: "Tajawal", sans-serif;
+
+      display: flex;
+      align-items: center;
+      direction: rtl;
+      padding: 0 10px;
+    }
+    .control {
+      height: 30px;
+      flex-grow: 1;
+      border: 1px solid #a7b1c2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .measurement-elements {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 20px;
+    .basic,
+    .components {
+      width: 100%;
+    }
+    .components {
+      margin-top: 20px;
+    }
+
+    .li {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      height: 40px;
+      border-bottom: 1px solid #ccc;
+
+      margin-bottom: 10px;
+
+      direction: rtl;
+
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 2px 2px 5px rgba(0, 0, 0, 0.1);
+        .bar {
+          background-color: #a7b1c2;
+        }
+      }
+      .bar {
+        width: 10px;
+        height: 100%;
+
+        margin-left: 10px;
+
+        &.active {
+          background-color: #ee0d45d5;
+        }
+      }
+
+      .label {
+        flex-grow: 1;
+      }
+    }
+  }
+}

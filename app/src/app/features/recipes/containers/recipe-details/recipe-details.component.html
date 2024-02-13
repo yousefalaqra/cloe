@@ -1,0 +1,68 @@
+<div class="profile-container">
+  <ng-container *ngIf="loading">
+    <div class="icon-loading">
+      <div class="apple">
+        <loading-apple></loading-apple>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading">
+    <div class="row">
+      <div class="col-sm">
+        <!-- <client-main-card [client]="client"></client-main-card> -->
+        <div class="itm">
+          <joi-card>
+            <recipe-basic-card [recipe]="selectedRecipe"></recipe-basic-card>
+          </joi-card>
+        </div>
+
+        <div class="itm">
+          <joi-card
+            [title]="'التحليل الشامل'"
+            [desc]="'توزيع الطاقة القيمة الغذائية'"
+          >
+            <nutrition-value
+              [nutritionValue]="nutritionValue"
+            ></nutrition-value>
+          </joi-card>
+        </div>
+      </div>
+
+      <div class="col-lg">
+        <!-- <client-general-card [client]="client"> </client-general-card> -->
+        <div class="itm">
+          <joi-card
+            [title]="'معلومات اساسية'"
+            [desc]="'تحقق من المعلومات الأساسية للوصفة وقم بتحريرها'"
+          >
+            <recipe-information-card
+              [recipe]="selectedRecipe"
+            ></recipe-information-card>
+          </joi-card>
+        </div>
+
+        <div class="itm">
+          <joi-card [title]="'مكونات'" [desc]="'ابحث وأضف المكونات إلى الوصفة'">
+            <recipe-ingredients [recipe]="selectedRecipe"></recipe-ingredients>
+          </joi-card>
+        </div>
+
+        <div class="itm">
+          <joi-card
+            [title]="'طريقة التحضير'"
+            [desc]="'أعط تعليمات لتحضير هذه الوصفة'"
+          >
+            <recipe-steps [recipe]="selectedRecipe"></recipe-steps>
+          </joi-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="taps-container">
+        <!-- <profile-taps></profile-taps> -->
+      </div>
+    </div>
+  </ng-container>
+</div>

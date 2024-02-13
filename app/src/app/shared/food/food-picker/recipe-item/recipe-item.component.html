@@ -1,0 +1,36 @@
+<div class="cot">
+
+  <div class="name">
+    {{ recipe.name }}
+  </div>
+
+  <div class="nut-value">
+    <div class="unit">
+      <div class="value">
+        {{ recipe.energy }}<span class="measurement">kcal</span>
+      </div>
+      <div class="type">الطاقة</div>
+    </div>
+    <div class="unit">
+      <div class="value">{{ recipe.fat }}<span class="measurement">g</span></div>
+      <div class="type">الدهون</div>
+    </div>
+    <div class="unit">
+      <div class="value">
+        {{ recipe.carbs }}<span class="measurement">g</span>
+      </div>
+      <div class="type">الكربوهيدرات</div>
+    </div>
+    <div class="unit">
+      <div class="value">
+        {{ recipe.protien }}
+        <span class="measurement">g</span>
+      </div>
+      <div class="type">البروتين</div>
+    </div>
+  </div>
+
+  <div (click)="onSelectItem()" class="add">
+    <i class="material-icons md-24">add</i>
+  </div>
+</div>

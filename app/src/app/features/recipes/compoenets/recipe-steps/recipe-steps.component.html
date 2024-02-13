@@ -1,0 +1,17 @@
+<div class="container">
+  <ng-container *ngFor="let step of recipe.steps; let i = index">
+    <step-item
+      [step]="step"
+      [index]="i"
+      (onUpdate)="updateStep($event)"
+      (onDelete)="onDeleteItem($event)"
+      (onAdd)="onAddStep($event)"
+    ></step-item>
+  </ng-container>
+  <step-item  
+  [isDummy]="true"
+  [step]="dummyStep"
+  [index]="recipe.steps?.length"
+  (onAdd)="onAddStep($event)"
+></step-item>
+</div>

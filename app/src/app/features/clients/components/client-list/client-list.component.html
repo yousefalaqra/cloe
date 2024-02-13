@@ -1,0 +1,44 @@
+<div class="container">
+  <div [ngClass]="{ ar: lang == 'ar' }" class="crd-header">
+    <div class="meta">
+      <div class="title">{{ "client.title" | translate }}</div>
+      <div class="desc">{{ "client.description" | translate }}</div>
+    </div>
+    <div [ngClass]="{ ar: lang == 'ar' }" class="options">
+      <div (click)="onAdd()" class="add">
+        <i class="material-icons md-18 sample">add</i>
+      </div>
+      <div class="import">
+        <i class="material-icons md-18 sample">system_update_alt</i>
+      </div>
+    </div>
+  </div>
+  <div class="crd-content">
+    <div [ngClass]="{ ar: lang == 'ar' }" class="search">
+      <input
+        placeholder="{{ 'client.search' | translate }}"
+        class="joui-input"
+        type="text"
+        [formControl]="searchControl"
+      />
+    </div>
+
+    <div [ngClass]="{ ar: lang == 'ar' }" class="list">
+      <ng-container *ngIf="loading">
+        <div class="icon-loading">
+          <div class="apple">
+
+            <loading-apple></loading-apple>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!loading">
+        <div *ngFor="let client of clients" class="list-item">
+          <client-list-item (onSelect)="onSelectClient($event)" [client]="client"></client-list-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<register-client-from (onAdd)="onSaveClinet($event)"></register-client-from>

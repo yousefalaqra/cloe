@@ -1,0 +1,71 @@
+<joi-card [title]="'التاريخ الطبي'" [desc]="'الأمراض والأدوية'">
+  <div class="content" cardContent>
+    <div class="diseases">
+      <div class="mad">
+        <presenter
+          #diseasesPresenter
+          [title]="'الأمراض'"
+          [type]="'normal'"
+          [editMood]="diseasesEditMode"
+          (onEdit)="requestDiseasesEdit($event)"
+          (onSave)="onSaveDiseases($event)"
+        >
+          <div dataFelid class="select-wrapper">
+            <input
+              (focusout)="onSaveDiseases(true)"
+              (keyup.enter)="onSaveDiseases(true)"
+              #diseasesInput
+              [formControl]="diseasesFormControl"
+              type="text"
+            />
+            <ng-container *ngIf="diseasesEditMode">
+              {{ diseasesInput.focus() }}
+            </ng-container>
+          </div>
+        </presenter>
+      </div>
+      <div class="list-diseases">
+        <nz-tag
+          (nzOnClose)="onDeleteDisease(disease.id)"
+          nzMode="closeable"
+          *ngFor="let disease of client.clientDiseases"
+          >{{ disease.diseaseName }}</nz-tag
+        >
+      </div>
+    </div>
+
+    <div class="diseases">
+      <div class="mad">
+        <presenter
+          #medicationPresenter
+          [title]="'الأدوية والعقاقير'"
+          [type]="'normal'"
+          [editMood]="medicationPresenterEditMode"
+          (onEdit)="requestMedicationEdit($event)"
+          (onSave)="onSaveMedication($event)"
+        >
+          <div dataFelid class="select-wrapper">
+            <input
+              (focusout)="onSaveMedication(true)"
+              (keyup.enter)="onSaveMedication(true)"
+              #medicationInput
+              [formControl]="medicationPresenterFormControl"
+              type="text"
+            />
+            <ng-container *ngIf="medicationPresenterEditMode">
+              {{ medicationInput.focus() }}
+            </ng-container>
+          </div>
+        </presenter>
+      </div>
+      <div class="list-diseases">
+        <nz-tag
+          (nzOnClose)="onDeleteMedication(medication.id)"
+          nzMode="closeable"
+          *ngFor="let medication of client.clientMedications"
+          >{{ medication.medicationName }}</nz-tag
+        >
+      </div>
+    </div>
+  </div>
+</joi-card>

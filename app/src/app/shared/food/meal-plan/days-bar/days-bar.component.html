@@ -1,0 +1,11 @@
+<div class="item">
+  <div class="days">
+    <div class="day" *ngFor="let day of plan.plan.days">
+      {{ day.day | day }}
+    </div>
+  </div>
+  <div *ngIf="plan.isActive" class="active"></div>
+  <div *ngIf="plan.length > 1" class="delete">
+    <i class="material-icons md-24">delete</i>
+  </div>
+</div>

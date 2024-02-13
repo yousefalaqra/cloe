@@ -1,0 +1,95 @@
+.cot {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: white;
+    border: 1px solid #ccc;
+  
+    padding: 0 10px 0 0;
+  }
+  
+  .first {
+    width: 120px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .quantity {
+    width: 50px;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input {
+      padding: 6px 6px;
+      height: 30px;
+      text-align: center;
+  
+      border-left: none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  
+  .unit {
+    nz-select {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 80px;
+  
+      height: 30px;
+  
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+  
+      &:focus {
+        border: 1px solid #1ab394;
+      }
+    }
+  }
+  
+  .nut-value {
+    width: 40%;
+    display: flex;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  
+    font-size: 9px;
+  
+    .unit {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      text-align: center;
+  
+      flex-grow: 1;
+  
+      .measurement {
+        display: inline-block;
+        margin-left: 4px;
+      }
+    }
+  }
+  
+  .add {
+    padding: 10px 0px;
+    width: 30px;
+    height: 100%;
+    background-color: #1ab394;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    color: white;
+  
+    cursor: pointer;
+  }
+  

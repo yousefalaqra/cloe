@@ -1,0 +1,35 @@
+<form nz-form [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }" [formGroup]="typeForm" (ngSubmit)="submitForm(typeForm.value)">
+  
+    <nz-form-item >
+      <nz-form-label [nzSpan]="6"  nzFor="type">{{translateData.typeCol}} </nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <input #typeName type="text" nz-input formControlName="type"  [placeholder]="translateData.typePlaceHolder"/>
+      </nz-form-control>
+    </nz-form-item>
+   
+    <nz-form-item>
+      <label  for="category" class="filterLabel">{{translateData.typeColCategory}} :</label>
+      <button class="filterButton" id="category" type="button" nz-button nz-dropdown [nzDropdownMenu]="menu4">
+        {{getNameTypeCategoryId()}}
+        <i  [ngStyle]="isArabic?{'margin-right': '20%'} : {'margin-left': '20%'}" nz-icon nzType="down"  nzTheme="outline"></i>
+      </button>
+      <nz-dropdown-menu #menu4="nzDropdownMenu">
+        <ul nz-menu [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">
+          <li nz-menu-item (click)="setTypeCategory(0)">{{translateData.foodItem}}</li>
+          <li nz-menu-item (click)="setTypeCategory(2)">{{translateData.diet}}</li>
+        </ul>
+      </nz-dropdown-menu>
+    </nz-form-item>
+   
+    <div nz-row>
+      <div nz-col nzSpan="16"></div>
+      <div nz-col nzSpan="8" class="search-area">
+        <button type="submit" nz-button  nzSuccess nzType="primary">{{translateData.save}} </button>
+        <button type="button" nz-button (click)="destroyModal(typeCategoryId)" nzDanger nzType="primary">{{translateData.close}} </button>
+        
+      
+      </div>
+    </div>
+  
+  
+  </form>

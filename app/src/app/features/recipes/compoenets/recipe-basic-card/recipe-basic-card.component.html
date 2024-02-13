@@ -1,0 +1,46 @@
+<div class="basic-content">
+  <div class="avatar"></div>
+  <div class="categories">
+    <ng-container *ngIf="!isShowAddCategoryFrom">
+      <div (click)="onAddCategory()" class="btn">
+        <span>وصف جديد</span>
+        <i class="material-icons md-18 sample">add</i>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isShowAddCategoryFrom">
+      <input
+        (focusout)="onCategoryFocusOut()"
+        (keyup.enter)="onCategoryFocusOut()"
+        [formControl]="categoryFormControl"
+        #categoryInput
+        type="text"
+      />
+      {{ categoryInput.focus() }}
+    </ng-container>
+
+    <div class="category-list">
+      <nz-tag
+        *ngFor="let category of recipe.categories"
+        nzMode="closeable"
+        (nzOnClose)="onDeleteCategory(category.id)"
+        >{{ category.categroy }}</nz-tag
+      >
+    </div>
+  </div>
+  <div class="itm actions">
+    <div class="btn gr">طباعة الوصفة</div>
+    <div
+      nz-popconfirm
+      nzPopconfirmTitle="هل أنت متأكد من أنك تريد حذف الوصفة؟"
+      nzPopconfirmPlacement="bottom"
+      (nzOnConfirm)="confirmDelete()"
+      (nzOnCancel)="cancel()"
+      [nzCancelText]="'إلغاء'"
+      [nzOkText]="'تأكيد'"
+      class="btn rd"
+    >
+      حذف الوصفة
+    </div>
+  </div>
+</div>

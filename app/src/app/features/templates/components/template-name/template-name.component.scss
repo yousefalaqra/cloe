@@ -1,0 +1,58 @@
+input {
+    width: 100%;
+    height: 34px;
+  
+    direction: rtl;
+    text-align: right;
+  
+    border: 1px solid #e5e6e7;
+    padding: 6px 12px;
+  
+    background-color: white;
+  
+    color: #676a6c;
+    font-size: 14px;
+    line-height: 1.42857143;
+  
+    &:focus {
+      border-color: #1ab394;
+    }
+    &.ng-invalid {
+      border-color: #db4965;
+    }
+  }
+
+  .select-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mad {
+    width: 100%;
+  
+    margin-bottom: 7px;
+  }
+
+  .cn{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Tajawal"
+  }
+
+  ::ng-deep {
+    button {
+      &.ant-btn-primary {
+        background-color: #1ab394;
+        border-color: #1ab394;
+      }
+    }
+    nz-date-picker {
+      input {
+        direction: rtl;
+      }
+    }
+  }

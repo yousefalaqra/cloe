@@ -1,0 +1,73 @@
+nz-button-group [nz-button] {
+  margin-right: 0;
+}
+
+.tableWidth {
+  width: 88%;
+}
+.successButton {
+  background-color: green;
+  color: white;
+}
+.whitebutton {
+  color: white;
+}
+
+.arabicDir {
+  direction: rtl;
+  margin-left: 25%;
+  width: 50%;
+  padding: 2%;
+}
+.englishDir {
+  padding: 2%;
+  margin-left: 20%;
+  width: 50%;
+}
+
+.addbuttonEnglish {
+  margin-left: 6px;
+}
+.addbuttonArabic {
+  margin-right: 1%;
+}
+.filterMarginEnglish {
+  margin-left: 1%;
+}
+.filterMarginArabic {
+  margin-right: 1%;
+}
+
+
+.titleClass {
+  border-bottom: 1px solid lightgray !important;
+  margin-left: 20%;
+  margin-right: 22%;
+  margin-top: 2%;
+}
+.titleClassEnglish {
+  border-bottom: 1px solid lightgray !important;
+  margin-left: 17%;
+  margin-right: 25%;
+  margin-top: 2%;
+}
+.newButton {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.ArabicAlighm{
+  text-align: right !important;
+}
+.EnglishAlighm{
+  text-align: left !important;
+}
+
+.thStyleAr
+{
+  background-color: lightgray;text-align: right !important;
+}
+.thStyleEn
+{
+  background-color: lightgray;text-align: left !important;
+}

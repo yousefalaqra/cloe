@@ -1,0 +1,11 @@
+<div class="container">
+  <ng-container *ngFor="let item of recipe.ingredients">
+    <list-item
+      (onUpdate)="onUpdateRecipeMeal($event)"
+      (onDelete)="onDeleteRecipe($event)"
+      [item]="item"
+    ></list-item>
+  </ng-container>
+
+  <food-picker (onSelectFoodItem)="onSelectFood($event)"></food-picker>
+</div>

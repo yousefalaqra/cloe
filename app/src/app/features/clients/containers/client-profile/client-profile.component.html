@@ -1,0 +1,27 @@
+<div class="profile-container">
+  <ng-container *ngIf="loading">
+    <div class="icon-loading">
+      <div class="apple">
+        <loading-apple></loading-apple>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading">
+    <div class="row">
+      <div class="col-sm">
+        <client-main-card [client]="client"></client-main-card>
+      </div>
+
+      <div class="col-lg">
+        <client-general-card [client]="client"> </client-general-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="taps-container">
+        <profile-taps></profile-taps>
+      </div>
+    </div>
+  </ng-container>
+</div>

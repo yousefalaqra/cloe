@@ -1,0 +1,166 @@
+<div class="container">
+  <ng-container *ngIf="loading; then loadingAppel; else notLoading">
+  </ng-container>
+
+  <ng-template #loadingAppel>
+    <div class="icon-loading">
+      <div class="apple">
+        <loading-apple></loading-apple>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #notLoading>
+    <div class="row">
+      <div class="col">
+        <div class="dues">
+          <joi-card [title]="'المستحقات'">
+            <div class="due-list">
+              <div class="du-it" *ngFor="let item of client.dues">
+                <div class="reason">
+                  <div class="text">قيمة الاستحقاق</div>
+                  <div class="value">{{ item.amount }} ₪</div>
+                </div>
+                <div class="reason">
+                  <div class="text">السبب</div>
+                  <div class="value">
+                    {{ item.reason }}
+                  </div>
+                </div>
+                <div class="data">{{ item.dueDate | date: "short" }}</div>
+              </div>
+            </div>
+            <div class="total">
+              <div class="total-label">مجموع المستحقات</div>
+              <div class="total-value">{{ totalDues }} ₪</div>
+            </div>
+          </joi-card>
+        </div>
+
+        <div class="payments">
+          <joi-card
+            [title]="'الدفعات'"
+            [desc]="'تابع دفعات العميل'"
+            (onAction)="showPaymentModal = true"
+          >
+            <div *ngFor="let item of client.payments" class="pay-li">
+              <payment-item
+                (onUpdatePayment)="updatePayment($event)"
+                (onDeletePayment)="deletePayment($event)"
+                [clinetId]="client.clientId"
+                [payment]="item"
+              >
+              </payment-item>
+            </div>
+            <div class="add-payment">
+              <div class="control">
+                <div class="label">قيمة الدفعة</div>
+                <input
+                  (keyup.enter)="onAddPayment()"
+                  type="number"
+                  [formControl]="paymentControl"
+                  placeholder="أضف دفعة جديدة"
+                />
+                <div class="icon">₪</div>
+              </div>
+            </div>
+            <div class="total">
+              <div class="total-label">مجموع الدفعات</div>
+              <div class="total-value">{{ totalPayment }} ₪</div>
+            </div>
+          </joi-card>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <ng-container
+          *ngIf="
+            client.clientSubscriptions.length < 1 || !currentSubscription;
+            then addSubscription;
+            else currentSubscription
+          "
+        ></ng-container>
+
+        <div class="debt">
+          <joi-card [title]="'ديون العميل'">
+            <div class="center">{{ totalDues - totalPayment }} ₪</div>
+          </joi-card>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #currentSubscription>
+  <div class="current">
+    <div class="header">
+      <div class="title">
+        <div class="main">إشتراك العميل</div>
+        <div class="sub">تابع معلومات اشتراك العميل</div>
+      </div>
+
+      <div class="actions">
+        <div (click)="onDeleteSubscription()" class="icon">
+          <i class="material-icons">delete</i>
+        </div>
+        <!-- <div *ngIf="!client.clientSubscriptions[0].isPause" class="icon">
+          <i class="material-icons">pause_circle_outline</i>
+        </div>
+        <div *ngIf="client.clientSubscriptions[0].isPause" class="icon">
+          <i class="material-icons">play_circle_outline</i>
+        </div> -->
+      </div>
+    </div>
+    <div id="progress" class="progress">
+      <div
+        [style.width.%]="fillerWidth"
+        [style.backgroundColor]="fillerColor"
+        class="filler"
+      ></div>
+    </div>
+    <div class="start-end">
+      <div class="end">
+        <div class="text">ينتهي في</div>
+        <div class="value">
+          {{ client.clientSubscriptions[0].endTime | date: "short" }}
+        </div>
+      </div>
+      <div class="end">
+        <div class="text">بداية الاشتراك</div>
+        <div class="value">
+          {{ client.clientSubscriptions[0].startTime | date: "short" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addSubscription>
+  <div (click)="toggleSubscriptionsList = !toggleSubscriptionsList" class="btn">
+    <div class="text">لا يوجد اشتراك حالي للعميل, اضغط لاضافة اشتراك</div>
+    <div class="icon">
+      <i class="material-icons">add</i>
+    </div>
+  </div>
+  <div [ngClass]="{ toggle: toggleSubscriptionsList }" class="list">
+    <div class="s-li" *ngFor="let subscription of subscriptions">
+      <div class="row">
+        <div class="cost">
+          <div class="label">قيمة الاشتراك</div>
+          <div class="value">{{ subscription.cost }} ₪</div>
+        </div>
+
+        <div class="period cost">
+          <div class="label">مدة الاشتراك</div>
+          <div class="value">
+            {{ transform(subscription.period) }}
+          </div>
+        </div>
+      </div>
+
+      <div (click)="onAddSubscription(subscription)" class="icon">
+        <i class="material-icons">add</i>
+      </div>
+    </div>
+  </div>
+</ng-template>

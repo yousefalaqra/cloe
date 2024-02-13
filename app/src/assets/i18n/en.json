@@ -1,0 +1,48 @@
+{
+  "app":{
+    "search": "Search clients, appointments, reports, ...",
+    "enCode": "en",
+    "arCode": "ar",
+    "en": "English",
+    "ar": "Arabic",
+    "profile": "Your profile",
+    "apps": "App and services integrations",
+    "privacy": "Privacy and notifications",
+    "configuration": "Configuration and preference",
+    "signout": "Sign out",
+    "required": "required"
+  },
+  "subHeader":{
+    "main": "Currently at BeHealth center",
+    "homepageTitle": "Professional home page",
+    "homepageDesc": "Check your next appointments and your activity"
+  },
+  "menu": {
+    "home": "Homepage",
+    "calender": "Calendar",
+    "clients": "Clients",
+    "subscriptions": "Subscriptions",
+    "foods": "Foods",
+    "equivalents": "Equivalents",
+    "recipes": "Recipes",
+    "templates": "templates",
+    "schedule": "Schedule appointment",
+    "register": "Register client"
+  },
+  "client":{
+    "title": "Your clients",
+    "description": "Check information about your clients",
+    "search": "Search clients by name, location, or contact number...",
+    "regTitle": "Register client",
+    "regSubTitle": "Register your client and continue scheduling the appointment",
+    "regBtn": "Register client",
+    "cancelBtn": "Cancel",
+    "fullNameLbl": "Full name",
+    "genderLbl": "Gender",
+    "birthdateLbl": "Birthdate",
+    "workplaceLbl": "Workplace",
+    "phoneNumberLbl": "Mobile phone number",
+    "maleOp": "Male",
+    "femaleOp": "Female"
+  }
+}

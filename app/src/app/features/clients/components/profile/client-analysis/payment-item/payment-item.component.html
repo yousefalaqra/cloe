@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="date">{{ payment.paymentDate | date: "short" }}</div>
+
+  <div class="value">
+    <input
+      #amount
+      (keyup.enter)="onUpdatePayment()"
+      type="number"
+      [formControl]="control"
+    />
+    {{ amount.focus() }}
+    <div class="icon">₪</div>
+  </div>
+
+  <div class="actions">
+    <div (click)="onEdit()" class="ic">
+      <i class="material-icons">edit</i>
+    </div>
+    <div (click)="onDelete()" class="ic">
+      <i class="material-icons">delete</i>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,158 @@
+.container {
+  position: absolute;
+  height: 75px;
+  // background-color: black;
+  right: 0;
+  top: 0;
+
+  background-color: #ffffff;
+
+  border-bottom: 1px solid #f1f1f1;
+
+  &.full-width {
+    &.ltr {
+      left: 220px;
+      right: 0;
+    }
+    &.rtl {
+      right: 220px;
+      left: 0;
+    }
+  }
+
+  &.min-width {
+    &.ltr {
+      left: 70px;
+      right: 0;
+    }
+    &.rtl {
+      right: 70px;
+      left: 0;
+    }
+  }
+
+  .menu-toggle {
+    position: absolute;
+    width: 46px;
+    height: 32px;
+
+    top: 50%;
+
+    transform: translate(0, -50%);
+
+    border-radius: 3px;
+
+    background-color: #ee0d45d5;
+
+    &.ltr {
+      left: 20px;
+    }
+    &.rtl {
+      right: 20px;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    .sample {
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: #9b727cd5;
+      .sample {
+        color: rgba(255, 255, 255, 0.788);
+      }
+    }
+  }
+
+  .notification {
+    position: absolute;
+    width: 46px;
+    height: 32px;
+
+    top: 50%;
+
+    transform: translate(0, -50%);
+
+    &.ltr {
+      left: 432px + 150px + 10px;
+    }
+    &.rtl {
+      right: 432px + 150px + 10px;
+    }
+  }
+}
+
+@media screen and(max-width: 1199px) {
+  .app-search {
+    &.ltr {
+      display: none;
+    }
+    &.rtl {
+      display: none;
+    }
+    display: none;
+    * {
+      display: none;
+    }
+  }
+  .notification {
+    display: none;
+    * {
+      display: none;
+    }
+  }
+}
+
+@media screen and(min-width: 1199px) {
+  .app-search {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translate(0, -50%);
+    width: 400px + 32px;
+    min-width: 100px;
+
+    height: 32px;
+
+    display: flex;
+
+    &.ltr {
+      left: 150px;
+      flex-direction: row;
+      .joui-input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .icon {
+        border-right: none;
+      }
+    }
+    &.rtl {
+      right: 150px;
+      flex-direction: row-reverse;
+      .joui-input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .icon {
+        border-left: none;
+      }
+    }
+
+    .joui-input {
+      width: 400px;
+    }
+    .icon {
+      width: 32px;
+      height: 32px;
+      .sample {
+        font-size: 18px;
+        color: #555;
+      }
+    }
+  }
+}

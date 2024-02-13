@@ -1,0 +1,17 @@
+<div class="wrapper" [ngClass]="{ en: language == 'en', ar: language == 'ar' }">
+  <bh-nav-menu></bh-nav-menu>
+  <bh-header></bh-header>
+  <bh-meta-header></bh-meta-header>
+
+  <div
+    [ngClass]="{
+      'full-width': toggled,
+      'min-width': !toggled,
+      rtl: language == 'ar',
+      ltr: language == 'en'
+    }"
+    class="content"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.container{
+    width: 100%;
+    padding: 20px;
+}
+
+.list-item {
+    border: 1px solid #e7eaec;
+    background-color: white;
+  
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  
+    cursor: pointer;
+    color: #888;
+  
+    margin-top: 10px;
+  
+    &:hover {
+      border-color: #1ab394;
+      color: #1ab394;
+  
+      .actions {
+        display: flex;
+        flex-direction: row;
+  
+        justify-content: space-evenly;
+  
+        .edit {
+          color: #1ab394;
+        }
+        .delete {
+          color: #db4965;
+        }
+      }
+    }
+  }
+  
+  .title {
+    //   flex-shrink: 1;
+    //   flex-grow: 1;
+    width: 40%;
+    text-align: right;
+    padding: 10px;
+
+    direction: rtl;
+  }
+  
+  .calc {
+    width: 50%;
+    display: flex;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  
+    .unit {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      text-align: center;
+  
+      flex-grow: 1;
+  
+      .value {
+      }
+  
+      .measurement {
+        display: inline-block;
+        margin-left: 4px;
+      }
+    }
+  }

@@ -1,0 +1,126 @@
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Tajawal", sans-serif;
+  .main {
+    font-weight: bolder;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .sub {
+    font-size: 11px;
+  }
+}
+
+.taps-header {
+  width: 100%;
+  display: flex;
+  direction: rtl;
+  justify-content: space-around;
+  align-items: center;
+
+  .tap-it {
+    width: 40%;
+    height: 35px;
+
+    cursor: pointer;
+
+    background-color: white;
+
+    padding: 10px;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      background-color: #ee0d45d5;
+      color: white;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .app-icon {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+  }
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 20px;
+
+  input {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    direction: rtl;
+  }
+}
+
+.form {
+  width: 100%;
+  form {
+    width: 100%;
+    margin-bottom: 20px;
+
+    direction: rtl;
+
+    .control {
+      width: 100%;
+
+      margin-bottom: 20px;
+
+      .label {
+        margin-bottom: 10px;
+      }
+
+      nz-select,
+      nz-range-picker {
+        width: 100%;
+      }
+    }
+  }
+  .actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    .btn {
+      cursor: pointer;
+      border: 1px solid;
+      padding: 6px 12px;
+      &.save {
+        border-color: #ee0d45d5;
+        color: white;
+        background-color: #ee0d45d5;
+      }
+
+      &.cancel {
+        border-color: #ccc;
+        color: #ccc;
+      }
+    }
+  }
+}

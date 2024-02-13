@@ -1,0 +1,210 @@
+<nz-modal
+  [(nzVisible)]="showForm"
+  (nzOnCancel)="handleCancel()"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzWidth]="900"
+  [nzClosable]="false"
+  (nzOnOk)="onSubmit()"
+>
+</nz-modal>
+
+<ng-template #modalTitle>
+  <div class="modal-title">
+    <div class="title">سجل القياسات</div>
+  </div>
+</ng-template>
+
+<ng-template #modalContent>
+  <form class="form" [formGroup]="measurementForm">
+    <div class="group">
+      <div class="label">تاريخ القياس</div>
+      <div class="control">
+        <nz-date-picker
+          [nzSuffixIcon]="null"
+          [nzAutoFocus]="false"
+          [nzBorderless]="true"
+          [formControl]="this.measurementForm.get('date')"
+        ></nz-date-picker>
+      </div>
+      <div class="icon">
+        <i class="material-icons">date_range</i>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">قياسات أنثروبومترية</div>
+      <div class="section-content">
+        <div class="group hf">
+          <div class="label">طول القامة</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('height')"
+            />
+          </div>
+          <div class="icon">سم</div>
+        </div>
+
+        <div class="group hf">
+          <div class="label">الوزن</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('wight')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full" [formGroup]="measurementForm">
+          <div class="label">نسبة الخصر إلى الورك</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('waistHipRatio')"
+            />
+          </div>
+          <div class="icon">%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">تركيب الجسم</div>
+      <div class="section-content">
+        <div class="group hf">
+          <div class="label">مجموع الماء في الجسم</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('totalBodyWater')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group hf">
+          <div class="label">العضلات</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('protien')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">كتلة الدهون في الجسم</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('bodyFatMass')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">كتلة العضلات الهيكلية</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('skeletalMuscleMass')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">المعادن</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('minerals')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">دهون الذراع اليمنى</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('fatOfRightArm')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">دهون الذراع اليسرى</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('fatOfLeftArm')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">دهن الجذع</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('fatOfTruck')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">دهون الساق اليسرى</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('fatOfLeftLeg')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">الدهون في الساق اليمنى</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('fatOfRightLeg')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">مؤشر كتلة الجسم</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('bodyMassIndex')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+
+        <div class="group full">
+          <div class="label">تناول السعرات الحرارية</div>
+          <div class="control">
+            <input
+              type="number"
+              [formControl]="this.measurementForm.get('caloriesIntake')"
+            />
+          </div>
+          <div class="icon">كغم</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</ng-template>

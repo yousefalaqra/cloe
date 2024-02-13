@@ -1,0 +1,221 @@
+<div
+  class="container"
+  [ngClass]="{
+    'full-width': toggled,
+    'min-width': !toggled,
+    rtl: language == 'ar',
+    ltr: language == 'en'
+  }"
+>
+  <div
+    class="logo"
+    [ngClass]="{ 'full-width': toggled, 'min-width': !toggled }"
+  >
+    <bh-logo></bh-logo>
+  </div>
+  <div
+    [ngClass]="{ 'full-width': toggled, 'min-width': !toggled }"
+    class="menu"
+  >
+    <div class="main">
+      <div
+        (click)="onMenuItem(0)"
+        id="0"
+        [ngClass]="{
+          'full-width': toggled,
+          'min-width': !toggled,
+          selected: currentPage == 0
+        }"
+        class="menu-item normal"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+          class="icon"
+        >
+          <i class="material-icons md-18 sample">library_books</i>
+        </div>
+        <span class="label">{{ "menu.home" | translate }}</span>
+      </div>
+
+      <div
+        (click)="onMenuItem(2)"
+        id="2"
+        [ngClass]="{
+          'full-width': toggled,
+          'min-width': !toggled,
+          selected: currentPage == 2
+        }"
+        class="menu-item normal"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+          class="icon"
+        >
+          <i class="material-icons md-18 sample">group</i>
+        </div>
+        <span class="label">{{ "menu.clients" | translate }}</span>
+      </div>
+
+      <div
+        (click)="onMenuItem(6)"
+        id="6"
+        [ngClass]="{
+          'full-width': toggled,
+          'min-width': !toggled,
+          selected: currentPage == 6
+        }"
+        class="menu-item normal"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+          class="icon"
+        >
+          <i class="material-icons md-18 sample">subtitles</i>
+        </div>
+        <span class="label">{{ "menu.subscriptions" | translate }}</span>
+      </div>
+
+      <div
+        (click)="onMenuItem(3)"
+        id="3"
+        [ngClass]="{
+          'full-width': toggled,
+          'min-width': !toggled,
+          selected: currentPage == 3
+        }"
+        class="menu-item normal"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+          class="icon"
+        >
+          <i class="material-icons md-18 sample">view_module</i>
+        </div>
+        <span class="label">عناصر غذائية</span>
+      </div>
+
+      <div
+        (click)="onMenuItem(4)"
+        id="4"
+        [ngClass]="{
+          'full-width': toggled,
+          'min-width': !toggled,
+          selected: currentPage == 4
+        }"
+        class="menu-item normal"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+          class="icon"
+        >
+          <i class="material-icons md-18 sample">restaurant_menu</i>
+        </div>
+        <span class="label">{{ "menu.recipes" | translate }}</span>
+      </div>
+
+      <div
+        (click)="onMenuItem(5)"
+        id="5"
+        [ngClass]="{
+          'full-width': toggled,
+          'min-width': !toggled,
+          selected: currentPage == 5
+        }"
+        class="menu-item normal"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+          class="icon"
+        >
+          <i class="material-icons md-18 sample">library_books</i>
+        </div>
+        <span class="label">برامج الغذائية</span>
+      </div>
+
+      <div
+      (click)="onMenuItem(5)"
+      id="5"
+      [ngClass]="{
+        'full-width': toggled,
+        'min-width': !toggled,
+        selected: currentPage == 5
+      }"
+      class="menu-item normal"
+      dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+    >
+      <div
+        [ngClass]="{
+          rtl: language == 'ar',
+          ltr: language == 'en'
+        }"
+        class="icon"
+      >
+        <i class="material-icons md-18 sample">list_alt</i>
+      </div>
+      <span class="label">مرادفات</span>
+    </div>
+    </div>
+
+    <div class="sub">
+      <div
+        (click)="onMenuItem(0)"
+        [ngClass]="{ 'full-width': toggled, 'min-width': !toggled }"
+        class="menu-item short"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+          class="icon"
+        >
+          <i class="material-icons md-18 sample">alarm_add</i>
+        </div>
+        <span class="label">{{ "menu.schedule" | translate }}</span>
+      </div>
+
+      <div
+        (click)="onMenuItem(2)"
+        [ngClass]="{ 'full-width': toggled, 'min-width': !toggled }"
+        class="menu-item short"
+        dir="{{ language == 'ar' ? 'rtl' : 'ltr' }}"
+      >
+        <div
+          class="icon"
+          [ngClass]="{
+            rtl: language == 'ar',
+            ltr: language == 'en'
+          }"
+        >
+          <i class="material-icons md-18 sample">person_add</i>
+        </div>
+        <span class="label">{{ "menu.register" | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

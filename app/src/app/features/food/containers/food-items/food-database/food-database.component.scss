@@ -1,0 +1,172 @@
+.container {
+  width: 100%;
+  padding: 0 20px;
+
+  margin-bottom: 20px;
+}
+
+
+.list-item {
+  border: 1px solid #e7eaec;
+  background-color: white;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  cursor: pointer;
+  color: #888;
+
+  margin-top: 10px;
+
+  &:hover {
+    border-color: #1ab394;
+    color: #1ab394;
+
+    .actions {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: space-evenly;
+
+      .edit {
+        color: #1ab394;
+      }
+      .delete {
+        color: #db4965;
+      }
+    }
+  }
+}
+
+.title {
+  //   flex-shrink: 1;
+  //   flex-grow: 1;
+  width: 40%;
+  text-align: right;
+  padding: 10px;
+}
+
+.calc {
+  width: 50%;
+  display: flex;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
+  .unit {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    text-align: center;
+
+    flex-grow: 1;
+
+    .value {
+    }
+
+    .measurement {
+      display: inline-block;
+      margin-left: 4px;
+    }
+  }
+}
+
+.actions {
+  width: 10%;
+
+  display: none;
+}
+
+.modal-title {
+  font-family: "Tajawal", sans-serif;
+
+  margin: 0 auto;
+  color: #676a6c;
+  line-height: 1.42857143;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    text-align: center;
+    font-size: 26px;
+  }
+  .sub {
+    font-size: 13px;
+  }
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .section{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    margin: 10px;
+
+    label{
+      margin-bottom: 7px;
+    }
+    input {
+      width: 100%;
+      border: 1px solid #e7eaec;
+      height: 35px;
+      direction: rtl;
+      padding: 10px;
+    }
+  }
+
+  .nutrition-section{
+    // width: 100%;
+    margin: 20px;
+  }
+  
+
+  nz-select {
+    direction: rtl;
+      width: 100%;
+      border: 1px solid #e5e6e7;
+  
+      &:focus {
+        border: 1px solid #1ab394;
+  
+      }
+  
+      &.invalid {
+        border: 1px solid #db4965;
+      }
+    }
+}
+
+
+::ng-deep {
+  button {
+    &.ant-btn-primary {
+      background-color: #1ab394;
+      border-color: #1ab394;
+    }
+  }
+  nz-date-picker {
+    input {
+      direction: rtl;
+    }
+  }
+}

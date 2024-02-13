@@ -1,0 +1,52 @@
+.profile-container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.apple {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.col-sm {
+  width: 30%;
+
+  margin-left: 20px;
+}
+
+.col-lg {
+  width: 70%;
+}
+
+input {
+  width: 30px;
+}
+
+.taps-container{
+  margin-top: 20px;
+  width: 100%;
+}
+
+//1051
+@media only screen and (max-width: 1051px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-sm {
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  .col-lg {
+    width: 100%;
+  }
+}

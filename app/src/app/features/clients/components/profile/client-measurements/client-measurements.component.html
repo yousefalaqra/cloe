@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="add-measurement">
+    <div (click)="onAdd()" class="add-button btn">
+      <div class="text">تسجيل القياس للعميل</div>
+      <div class="icon">
+        <i class="material-icons">add</i>
+      </div>
+    </div>
+
+    <div class="import btn">
+      <input
+        (change)="fileChangeListener($event)"
+        #fileImportInput
+        type="file"
+      />
+      <div class="text">استيراد القياس</div>
+      <i class="material-icons">import_export</i>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="scroll" class="list">
+      <joi-card
+        [icon]="'import_export'"
+        [title]="'قياسات العميل'"
+        [desc]="'تابع بيانات وتقدم العميل'"
+      >
+        <div
+          class="list-item"
+          *ngFor="let measurement of client.clientMeasurements"
+        >
+            <div class="icon">
+              <i class="material-icons">date_range</i>
+            </div>
+            <div class="label">
+              {{ measurement.date | date: "short" }}
+            </div>
+            <div class="control">
+              {{ measurement[activeMeasurement.key] }}
+              {{ activeMeasurement.unit }}
+            </div>
+        </div>
+      </joi-card>
+    </div>
+
+    <div class="measurement-elements">
+      <div class="basic">
+        <joi-card [title]="'قياسات أنثروبومترية'">
+          <div
+            (click)="onActiveMeasurement(item)"
+            class="li"
+            *ngFor="let item of measurementSetA"
+          >
+            <div
+              [ngClass]="{ active: item.key == activeMeasurement?.key }"
+              class="bar"
+            ></div>
+            <div class="label">
+              {{ item.label }}
+            </div>
+            <div class="value" *ngIf="client.clientMeasurements[0]">
+              {{ client.clientMeasurements[0][item?.key] }} {{ item?.unit }}
+            </div>
+          </div>
+        </joi-card>
+      </div>
+      <div class="components">
+        <joi-card [title]="'البيانات التحليلية'">
+          <div
+            (click)="onActiveMeasurement(item)"
+            class="li"
+            *ngFor="let item of measurementSetB"
+          >
+            <div
+              [ngClass]="{ active: item.key == activeMeasurement.key }"
+              class="bar"
+            ></div>
+            <div class="label">
+              {{ item.label }}
+            </div>
+            <div class="value" *ngIf="client.clientMeasurements[0]">
+              {{ client.clientMeasurements[0][item?.key] }} كغم
+            </div>
+          </div>
+        </joi-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<measurement-form (onAdd)="onAddMeasurement($event)"></measurement-form>

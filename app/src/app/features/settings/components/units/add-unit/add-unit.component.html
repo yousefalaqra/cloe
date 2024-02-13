@@ -1,0 +1,41 @@
+<form  nz-form [formGroup]="unitForm" (ngSubmit)="submitForm(unitForm.value)">
+  <div nz-row>
+   <div  nz-col  [nzSpan]="19" >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="code" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">{{translateData.unitColCode}}</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <input #typeName type="text" nz-input formControlName="code" [placeholder]="translateData.codePlaceHolder" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }" />
+    </nz-form-control>
+  </nz-form-item>
+  </div>
+
+
+  <div nz-col  [nzSpan]="4"> 
+    <label nz-checkbox formControlName="isLiquid">
+        <span>{{translateData.liquid}}</span>
+    </label>
+
+</div>
+</div>
+ 
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6"  nzRequired nzFor="gramsRatio" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }"> {{translateData.unitColGramsRatio}}</nz-form-label>
+    <nz-form-control [nzSpan]="12" [nzErrorTip]="translateData.gramsPlaceHolder">
+      <input type="number" nz-input formControlName="gramsRatio" [placeholder]="translateData.gramsPlaceHolder" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }" />
+    </nz-form-control>
+  </nz-form-item>
+
+
+
+  <div nz-row>
+    <div nz-col nzSpan="16"></div>
+    <div nz-col nzSpan="8" class="search-area">
+      <button type="submit" nz-button  nzSuccess nzType="primary" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }"> {{translateData.save}}</button>
+
+      <button type="button" nz-button (click)="destroyModal()" nzDanger nzType="primary" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }"> {{translateData.close}}</button>
+    
+    </div>
+  </div>
+
+
+</form>

@@ -1,0 +1,21 @@
+<div
+  (click)="onClientClicked()"
+  [ngClass]="{ ar: lang == 'ar' }"
+  class="container"
+>
+  <div class="avatar">
+    <av-d-woman *ngIf="client?.gender == 1"></av-d-woman>
+    <av-e-man *ngIf="client?.gender == 0"></av-e-man>
+  </div>
+
+  <div class="info">
+    <div class="name text">{{ client?.fullName }}</div>
+    <!-- <div class="next-app text sm">
+      <i class="material-icons md-18 sample green">calendar_today</i>
+      <span> No appointments yet </span>
+    </div> -->
+  </div>
+
+  
+  <div matTooltip="aqra" [ngClass]="{ inDept: client?.inDebt }" class="status"></div>
+</div>

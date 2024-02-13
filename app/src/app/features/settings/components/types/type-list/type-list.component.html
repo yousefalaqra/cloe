@@ -1,0 +1,74 @@
+<div nz-row [ngClass]="{'titleClass':isArabic, 'titleClassEnglish':!isArabic }"
+  [ngStyle]="isArabic?{'direction': 'rtl'} : {'direction': 'ltr'}">
+  <h1 [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }" style="font-weight: bold;"> {{translateData.types}}
+  </h1>
+</div>
+<div [ngClass]="{'arabicDir':isArabic, 'englishDir':!isArabic }">
+  <div nz-row>
+
+    <div nz-col nzSpan="5">
+      <div  nz-row nzJustify="end">
+        <h4 [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }" style="margin-top: 1.1%;">{{translateData.filterType}} </h4>
+      </div>
+    </div>
+    <div [ngClass]="{'filterMarginArabic ArabicFont':isArabic, 'filterMarginEnglish EnglishFont':!isArabic }" nz-col
+      nzSpan="4">
+      <button nz-button nz-dropdown [nzDropdownMenu]="menu4">
+        {{getNameTypeCategoryId()}}
+        <i nz-icon nzType="down" nzTheme="outline"></i>
+      </button>
+      <nz-dropdown-menu #menu4="nzDropdownMenu">
+        <ul nz-menu [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">
+          <li nz-menu-item (click)="filterbyTypeCategory(0)">{{translateData.foodItem}} </li>
+          <!-- <li nz-menu-item (click)="filterbyTypeCategory(1)">{{translateData.meal}} </li> -->
+          <li nz-menu-item (click)="filterbyTypeCategory(2)">{{translateData.diet}} </li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+    <div nz-col nzSpan="9"> </div>
+    <div nz-col nzSpan="4" [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">
+
+      <button nz-button class="successButton" (click)="addNewType()">
+        {{translateData.new}} <i class="newButton" nz-icon nzType="plus" nzTheme="outline"></i>
+      </button>
+
+    </div>
+
+    <div nz-row>
+      <nz-table #filterTable nzSize="small" class="tableWidth"  [nzShowPagination]="false"
+        [nzData]="typeItem" nzTableLayout="fixed" [nzNoResult]="translateData.noData">
+        <thead>
+          <tr>
+            <th  [ngClass]="{'ArabicFont thStyleAr':isArabic, 'EnglishFont thStyleEn':!isArabic }" 
+               *ngFor="let column of listOfColumns" [nzSortOrder]="column.sortOrder"
+              [nzSortFn]="column.sortFn" [nzSortDirections]="column.sortDirections"
+              >
+              {{ column.name }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let item of filterTable.data ; let i = index">
+          <tr id="{{i}}"  (mouseenter)="showSetting($event)" (mouseleave)="turnOffAction($event)" [ngStyle]="i%2 ==0?{'background-color': '#edece6'} : {'background-color': 'white'}"
+          [ngClass]="{'ArabicFont':isArabic, 'EnglishFont':!isArabic }">
+            <td  [ngClass]="{'ArabicAlighm':isArabic, 'EnglishAlighm':!isArabic }">
+              <div nz-row>
+                <div nz-col nzSpan="20">{{ item.type }}</div>
+                <div nz-col nzSpan="4">
+                  <ng-container *ngIf="item.action">
+                    <button nz-button style="color: green;background-color: white;border: none  !important;;"
+                      (click)="editType(item)"><i nz-icon nzType="edit" nzTheme="outline"></i> </button>
+                    <button nzType="danger" nz-button
+                      style="color: red;background-color: white;border: none  !important;"
+                      (click)="showDeleteConfirm(item)"> <i nz-icon nzType="delete" nzTheme="outline"></i>
+                    </button>
+                  </ng-container>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </ng-container>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>

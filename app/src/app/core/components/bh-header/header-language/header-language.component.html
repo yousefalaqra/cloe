@@ -1,0 +1,29 @@
+<div
+  nz-dropdown
+  [nzDropdownMenu]="menu3"
+  nzPlacement="bottomRight"
+  [nzTrigger]="'click'"
+  class="container"
+  [ngClass]="{
+    rtl: language == 'ar',
+    ltr: language == 'en'
+  }"
+>
+  <div class="lang">
+    <div class="icon-lan">
+      <i class="material-icons md-18 bh-icon m">language</i>
+    </div>
+    <div class="selected-lang">{{ language }}</div>
+  </div>
+
+  <nz-dropdown-menu #menu3="nzDropdownMenu">
+    <ul nz-menu>
+      <li (click)="onLang('ar')" nz-menu-item>
+        <span>{{ "app.en" | translate}}</span>
+      </li>
+      <li (click)="onLang('ar')" nz-menu-item>
+        <span>{{ "app.ar" | translate}}</span>
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>

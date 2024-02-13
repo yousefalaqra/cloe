@@ -1,0 +1,83 @@
+<div id="{{ meal.id }}" class="container">
+  <div class="header">
+    <div class="name ed">
+      <div *ngIf="!nameEditMode" class="edit" (click)="nameEditMode = true">
+        <i class="material-icons md-24">edit</i>
+      </div>
+      <div *ngIf="!nameEditMode" class="text">{{ meal.name }}</div>
+      <ng-container *ngIf="nameEditMode">
+        <input
+          #nameEl
+          type="text"
+          (keyup.enter)="onUpdateMealName()"
+          [formControl]="mealNameFromControl"
+        />
+        {{ nameEl.focus() }}
+      </ng-container>
+    </div>
+    <div class="time-action">
+      <div class="time ed">
+        <div *ngIf="!nameTimeMode" class="edit" (click)="nameTimeMode = true">
+          <i class="material-icons md-24">edit</i>
+        </div>
+
+        <nz-time-picker
+          *ngIf="nameTimeMode"
+          [(ngModel)]="mealTime"
+          [nzFormat]="'HH:mm'"
+          [nzOpen]="true"
+          [nzUse12Hours]="true"
+          (ngModelChange)="onUpdateMealTime($event)"
+        ></nz-time-picker>
+        <div *ngIf="!nameTimeMode" class="text">
+          {{ meal.time | date: "shortTime" }}
+        </div>
+      </div>
+      <div (click)="onDeleteMeal()" class="delete">
+        <i class="material-icons md-24">delete</i>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="recipes-list">
+      <div *ngFor="let item of meal.recipes">
+        <recipe-meal-item
+          (onDelete)="onDeleteRecipe($event)"
+          [item]="item"
+        ></recipe-meal-item>
+      </div>
+      <div *ngFor="let item of meal.items">
+        <list-item
+          (onDelete)="onDeleteItem($event)"
+          (onUpdate)="onUpdateItem($event)"
+          [item]="item"
+        ></list-item>
+      </div>
+    </div>
+    <food-picker
+      (onRecipe)="onRecipeSelect($event)"
+      (onSelectFoodItem)="onItemSelect($event)"
+      [onlyFoods]="false"
+    ></food-picker>
+  </div>
+
+  <div class="footer">
+    <div class="nut">
+      <div class="unit">الطاقة</div>
+      <div class="value">{{ meal.energy }} <span>kcal</span></div>
+    </div>
+    <div class="nut">
+      <div class="unit">الدهون</div>
+      <div class="value">{{ meal.fat }} <span>g</span></div>
+    </div>
+    <div class="nut">
+      <div class="unit">الكربوهيدرات</div>
+      <div class="value">{{ meal.carbs }} <span>g</span></div>
+    </div>
+    <div class="nut">
+      <div class="unit">البروتين</div>
+      <div class="value">{{ meal.protien }} <span>g</span></div>
+    </div>
+  </div>
+</div>

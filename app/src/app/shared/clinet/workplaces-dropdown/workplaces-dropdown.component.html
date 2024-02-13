@@ -1,0 +1,16 @@
+<nz-select
+  [(ngModel)]="selectedWorkPlace"
+  (ngModelChange)="onWorkplaceChange($event)"
+  nzMode="multiple"
+  [nzOpen]="open"
+  [nzBorderless]="true"
+  [nzShowArrow]="false"
+  name="selectedWorkPlace"
+  [ngClass]="{ invalid: workplaceError }"
+>
+  <nz-option
+    *ngFor="let workplace of workplaces"
+    nzLabel="{{ workplace.title }}"
+    nzValue="{{ workplace.id }}"
+  ></nz-option>
+</nz-select>

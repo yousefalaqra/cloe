@@ -1,0 +1,48 @@
+{
+  "app": {
+    "search": "ابحث في العملاء والمواعيد والتقارير ...",
+    "enCode": "إ",
+    "arCode": "ع",
+    "en": "انجليزي",
+    "ar": "عربي",
+    "profile": "حسابك الشخصي",
+    "apps": "تكامل التطبيقات والخدمات",
+    "privacy": "الخصوصية والإخطارات",
+    "configuration": "الإعدادات والمفضلة",
+    "signout": "تسجيل خروج",
+    "required": "حقل مطلوب"
+  },
+  "subHeader": {
+    "main": "حاليا في مركز BeHealth",
+    "homepageTitle": "الصفحة الرئيسية المهنية",
+    "homepageDesc": "تحقق من مواعيدك القادمة ونشاطك"
+  },
+  "menu": {
+    "home": "الرئيسية",
+    "calender": "التقويم",
+    "clients": "العملاء",
+    "subscriptions": "الإشتراكات",
+    "foods": "عناصر",
+    "equivalents": "مرادفات",
+    "recipes": "وصفات",
+    "templates": "قوالب",
+    "schedule": "حجز موعدًا",
+    "register": "تسجيل العميل"
+  },
+  "client": {
+    "title": "عملاؤك",
+    "description": "تحقق من المعلومات حول عملائك",
+    "search": "البحث عن العملاء بالاسم أو الموقع أو رقم الاتصال ...",
+    "regTitle": "تسجيل العميل",
+    "regSubTitle": "سجل عميلك وتابع جدولة المواعيد",
+    "regBtn": "تسجيل العميل",
+    "cancelBtn": "إلغاء",
+    "fullNameLbl": "الاسم الكامل",
+    "genderLbl": "الجنس",
+    "birthdateLbl": "تاريخ الولادة",
+    "workplaceLbl": "مكان العمل",
+    "phoneNumberLbl": "رقم الهاتف الجوال",
+    "maleOp": "ذكر",
+    "femaleOp": "أنثى"
+  }
+}

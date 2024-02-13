@@ -1,0 +1,36 @@
+<div class="itm" [ngClass]="{ show: editMode, not: !editMode }">
+  <div class="delete" (click)="onDeleteItem()" [ngClass]="{ show: editMode }">
+    <i class="material-icons md-24">delete</i>
+  </div>
+  <div class="index" (click)="onDeleteItem()">
+    {{ index + 1 }}
+  </div>
+  <ng-container
+    *ngIf="!editMode; then thenTemplate; else elseTemplate"
+  ></ng-container>
+</div>
+
+<ng-template #thenTemplate>
+  <div class="options">
+    <div class="ic edit" (click)="editMode = true">
+      <i class="material-icons md-24">edit</i>
+    </div>
+  </div>
+
+  <div dir="rtl" class="text">
+    {{ step.description }}
+  </div>
+</ng-template>
+
+<ng-template #elseTemplate>
+  <div class="step">
+    <input
+      #step
+      (keyup.enter)="updateStep()"
+      type="text"
+      class="joui-input"
+      [formControl]="stepControl"
+    />
+    {{ step.focus() }}
+  </div>
+</ng-template>

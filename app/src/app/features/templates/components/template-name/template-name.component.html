@@ -1,0 +1,52 @@
+<div class="container">
+  <joi-card
+    [title]="'معلومات اساسية'"
+    [desc]="'تحقق من المعلومات الأساسية للقالب وقم بتحريره'"
+    [icon]="'delete'"
+    (onAction)="showDeleteModal = true"
+  >
+    <div class="mad">
+      <presenter
+        #templateNamePresenter
+        [title]="'اسم القالب'"
+        [type]="'normal'"
+        [editMood]="templateNameEditMode"
+        (onEdit)="templateNameRequestEdit($event)"
+        (onSave)="onSaveTemplateName($event)"
+      >
+        <div dataFelid class="select-wrapper">
+          <input
+            #templateName
+            lang="en"
+            name="templateNameControl"
+            [formControl]="templateNameControl"
+            type="text"
+          />
+          <ng-container *ngIf="templateNameEditMode">
+            {{ templateName.focus() }}
+          </ng-container>
+        </div>
+      </presenter>
+    </div>
+  </joi-card>
+</div>
+
+<nz-modal
+  [(nzVisible)]="showDeleteModal"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  (nzOnCancel)="showDeleteModal = false"
+  (nzOnOk)="onDelete()"
+>
+  <ng-template #modalTitle>
+    <div class="cn">
+      <h3>هل أنت متأكد أنك تريد حذف هذا النموذج؟</h3>
+    </div>
+  </ng-template>
+
+  <ng-template #modalContent>
+    <div class="cn">
+      <p>لا يمكن التراجع عن هذا الإجراء وسيؤدي إلى حذف نموذج خطة الوجبات</p>
+    </div>
+  </ng-template>
+</nz-modal>

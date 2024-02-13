@@ -1,0 +1,42 @@
+.header {
+  width: 100%;
+  text-align: right;
+}
+
+.content-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+
+  .search {
+    width: 100%;
+
+    input {
+      direction: rtl;
+      height: 35px;
+    }
+  }
+
+  .filter {
+    width: 40%;
+    nz-select {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 68%;
+
+      height: 35px;
+
+      &:focus {
+        border: 1px solid #1ab394;
+      }
+    }
+  }
+}
+.icon {
+  height: 10px;
+  float: left;
+}
+
+.test {
+  background-color: red !important;
+}

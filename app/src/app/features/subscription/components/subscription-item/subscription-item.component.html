@@ -1,0 +1,17 @@
+<div [ngClass]="{ 'in-active': subscription.disabled }" class="container">
+  <div class="cost">
+    <div class="label">قيمة الاشتراك</div>
+    <div class="value">{{ subscription.cost }} ₪</div>
+  </div>
+
+  <div class="period cost">
+    <div class="label">مدة الاشتراك</div>
+    <div class="value">
+      {{ subscription.period | period }}
+    </div>    
+  </div>
+
+  <div class="status">
+    <nz-switch (ngModelChange)="onStatusChange($event)" [(ngModel)]="!subscription.disabled"></nz-switch>
+  </div>
+</div>

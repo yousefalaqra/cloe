@@ -1,0 +1,50 @@
+<div class="container">
+  <card-list
+    [title]="'قوالب خطة الوجبات'"
+    [desc]="'ابحث عن قوالب خطط الوجبات وتحقق منها وأنشئها'"
+    [icon]="'add'"
+    [loading]="loading"
+    [placeholder]="'ابحث عن قالب خطة الوجبات'"
+    (onIcon)="creteDefaultTemplate()"
+    (onSearch)="searchTemplate($event)"
+  >
+    <div class="content">
+      <div class="food-list">
+        <div
+          class="list-item"
+          [routerLink]="['/template/details', item.id]"
+          *ngFor="let item of templates"
+        >
+          <div class="title">{{ item.name }}</div>
+          <div class="calc">
+            <div class="unit">
+              <div class="value">
+                {{ item.energy }}<span class="measurement">kcal</span>
+              </div>
+              <div class="type">الطاقة</div>
+            </div>
+            <div class="unit">
+              <div class="value">
+                {{ item.fat }}<span class="measurement">g</span>
+              </div>
+              <div class="type">الدهون</div>
+            </div>
+            <div class="unit">
+              <div class="value">
+                {{ item.carbs }}<span class="measurement">g</span>
+              </div>
+              <div class="type">الكربوهيدرات</div>
+            </div>
+            <div class="unit">
+              <div class="value">
+                {{ item.protien }}
+                <span class="measurement">g</span>
+              </div>
+              <div class="type">البروتين</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </card-list>
+</div>

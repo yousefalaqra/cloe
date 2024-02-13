@@ -1,0 +1,66 @@
+<joi-card
+  [title]="'ملاحظات'"
+  [desc]="'معلومات أخرى ذات صلة بالعميل'"
+  [icon]="'add'"
+  (onAction)="onAdd()"
+>
+  <div class="content" cardContent>
+    <div class="observation-list">
+      <div
+        class="observation-item"
+        *ngFor="let observation of client.clientObservations"
+        (click)="
+          onSelectObservation(
+            observation.observationDate,
+            observation.observation,
+            observation.id
+          )
+        "
+      >
+        <div class="value">{{ observation.observation }}</div>
+        <div class="date">
+          {{ observation.observationDate | date: "short" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</joi-card>
+
+<nz-modal
+  [(nzVisible)]="showModal"
+  [nzTitle]="observeTitle"
+  (nzOnCancel)="handleModelCancel()"
+  [nzContent]="observeContent"
+  (nzOnOk)="onSaveObservation()"
+>
+</nz-modal>
+
+<ng-template #observeContent>
+  <div>
+    <div class="form-group">
+      <label>تاريخ الملاحظة</label>
+      <nz-date-picker [(ngModel)]="observeDate" name="date"></nz-date-picker>
+    </div>
+
+    <div class="form-group">
+      <label>ملاحظات</label>
+      <textarea
+        [(ngModel)]="observationFromControl"
+        cols="15"
+        rows="5"
+      ></textarea>
+    </div>
+  </div>
+</ng-template>
+<ng-template #observeTitle>
+  <div class="c-title">
+    <div class="title">
+      <h2>ملاحظات</h2>
+      <p>سجل ملاحظات العميل الخاص بك</p>
+    </div>
+
+    <div (click)="onRemoveObservation()" class="remove" *ngIf="isUpdate">
+      <i class="material-icons icon">delete_sweep</i>
+    </div>
+  </div>
+</ng-template>

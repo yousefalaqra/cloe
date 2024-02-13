@@ -1,0 +1,27 @@
+.profile-container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.apple {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+.col {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.itm {
+  &.sm {
+    margin-top: 20px;
+  }
+  &.lg {
+    width: 80%;
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,17 @@
+<nz-select
+  [(ngModel)]="selectedGender"
+  [nzOpen]="open"
+  [nzBorderless]="true"
+  [nzShowArrow]="false"
+  name="selectedGender"
+  (ngModelChange)="onChange($event)"
+>
+  <nz-option
+    nzLabel="{{ 'client.maleOp' | translate }}"
+    nzValue="0"
+  ></nz-option>
+  <nz-option
+    nzLabel="{{ 'client.femaleOp' | translate }}"
+    nzValue="1"
+  ></nz-option>
+</nz-select>

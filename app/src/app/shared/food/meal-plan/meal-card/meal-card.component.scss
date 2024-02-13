@@ -1,0 +1,113 @@
+.container {
+  width: 100%;
+  background-color: white;
+  margin-top: 20px;
+  -webkit-box-shadow: 0 2px 2px 0 rgb(144 144 144 / 14%),
+    0 3px 1px -2px transparent, 0 1px 5px 0 rgb(145 145 145 / 12%);
+  box-shadow: 0 2px 2px 0 rgb(144 144 144 / 14%), 0 3px 1px -2px transparent,
+    0 1px 5px 0 rgb(145 145 145 / 12%);
+
+  border-radius: 5px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 20px 15px 20px;
+  font-size: 15px;
+  font-weight: bolder;
+
+  .time-action {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    .delete {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      margin-right: 12px;
+      i {
+        color: #db4965;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.body {
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.footer {
+  padding: 20px;
+  padding-top: 0px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+
+  .nut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ed {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #1ab394;
+  border-bottom-style: dashed;
+
+  position: relative;
+  padding: 0 10px 5px 10px;
+
+  &:hover {
+    .edit {
+      display: block;
+    }
+  }
+
+  input {
+    outline: 0;
+    border: 0;
+    width: 100%;
+    direction: rtl;
+  }
+
+  nz-time-picker{
+    outline: 0;
+    border: 0;
+    width: 100%;
+    direction: rtl;
+  }
+
+  .edit {
+    position: absolute;
+    left: 1px;
+    top: 0;
+
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+    background-color: whitesmoke;
+
+    cursor: pointer;
+
+    display: none;
+
+    i {
+      font-size: small;
+    }
+  }
+}
