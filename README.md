@@ -97,3 +97,12 @@ To begin, clone the public repository, which currently includes the web server l
 
 This command will compile the application and start a development server. Once started, you can access the application in your web browser at `http://localhost:4200`.
 
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
