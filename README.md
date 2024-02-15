@@ -22,10 +22,11 @@ Collaborating on Cloe presents invaluable skill-building opportunities:
 
 - **Technical skills:** Master programming languages, frontend and backend development, quality assurance, and UI/UX design.
 - **Soft skills:** Hone your business development, market research, public speaking, and teamwork abilities.
+- **Boost your career prospects** Increase your visibility to industry leaders, and build a portfolio you're truly proud of that demonstrates your skills and growth.
 
 ##  Join the Movement
 
-Visit the Olive Harmony website to learn more about our mission, existing projects, and membership: [https://oliveharmony.org].
+Visit the [Olive Harmony website](https://www.oliveharmony.org) to learn more about our mission, existing projects, and membership.
 
 Together, let's build a platform that empowers individuals, fosters community, and fuels positive change in the world of nutrition.
 
@@ -75,20 +76,22 @@ To begin, clone the public repository, which currently includes the web server l
 1. **Ensure you have Node.js 14.**
    - [Download Node.js](https://nodejs.org/)
 
-2. **Install Angular CLI 11 globally using npm.**
+
+2. **Install dependencies.**
    ```bash
-   npm install @angular/cli@11.2.1
+   npm install
    ```
+
 
 3. **Navigate to the `./app` directory.**
    ```bash
    cd ./app
    ```
 
-4. **Install dependencies.**
+4. **Install local Angular CLI 11 using npm.**
    ```bash
-   npm install
-   ```
+   npm install @angular/cli@11.2.1
+   ```   
 
 5. **Start the application.**
    ```bash
