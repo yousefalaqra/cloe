@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, pipe } from 'rxjs';
 import { AppState } from './state/app.state';
-import { getItemByKey } from '../../environments/storage';
 import { Event } from '@angular/router';
 import { en_US, ar_EG, NzI18nService } from 'ng-zorro-antd/i18n';
 import { AppApi } from './api/app.api';
@@ -66,16 +65,6 @@ export class AppFacade {
   }
 
   setDefaultLanguage(): void {
-    // let lang = getItemByKey('language');
-
-    // if (lang) {
-    //   this._translateService.setDefaultLang(lang);
-    //   this._appState.setLanguage(lang);
-
-    //   if (lang == 'ar') this._nzI18nService.setLocale(ar_EG);
-    //   if (lang == 'en') this._nzI18nService.setLocale(en_US);
-    //   return;
-    // }
     this._translateService.setDefaultLang('ar');
     this._appState.setLanguage('ar');
     this._nzI18nService.setLocale(ar_EG);
